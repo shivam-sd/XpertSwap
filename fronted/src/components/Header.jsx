@@ -13,8 +13,9 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center space-x-4">
           <Link
-          to={"/"} 
-          className="text-lg font-bold text-blue-800 leading-tight">
+            to={"/"}
+            className="text-lg font-bold text-blue-800 leading-tight"
+          >
             <span className="block leading-none text-xl">Skill</span>
             <span className="text-green-600 text-xl">Linkr</span>
           </Link>
@@ -144,22 +145,28 @@ const Navbar = () => {
                     className="ml-4 mt-1 space-y-2"
                   >
                     <Link
-                      to="/about/company"
-                      className="block hover:text-blue-700"
+                      to="/user-profile"
+                      className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Company
+                      Profile
                     </Link>
                     <Link
-                      to="/about/team"
-                      className="block hover:text-blue-700"
+                      to="/nearby"
+                      className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Team
+                      Nearby Users
                     </Link>
                     <Link
-                      to="/about/vision"
-                      className="block hover:text-blue-700"
+                      to="/skill-marketplace"
+                      className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Vision
+                      Skill Marketplace
+                    </Link>
+                    <Link
+                      to="/request"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Skill Request
                     </Link>
                   </motion.div>
                 )}
