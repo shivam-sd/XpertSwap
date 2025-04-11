@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import hero1 from "../assets/hero1.jpg";
-import hero2 from "../assets/hero2.png";  
+import hero2 from "../assets/hero2.jpg";  
 import hero3 from "../assets/hero3.jpg";
 import { Link } from "react-router-dom";
 
@@ -78,7 +78,7 @@ const HeroSection = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -100, opacity: 0 }}
             transition={{ duration: 1 }}
-            className="w-full lg:w-1/2 flex justify-center"
+            className="w-full lg:w-1/2 flex justify-center mix-blend-multiply"
           >
             <img
               src={image}

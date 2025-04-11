@@ -12,9 +12,8 @@ import SkillMarket from "./pages/SkillMarketPlace";
 import FreshGraduates from "./pages/FreshGraduates";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
-import AvoutHero from "./components/AboutHero";
 import "./App.css";
-import AboutHero from "./components/AboutHero";
+import UserList from "./pages/UserList";
 
 function App() {
   return (
@@ -32,7 +31,7 @@ function App() {
         <Route path="/fresh-graduates" element={<FreshGraduates />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/about-hero" element={<AboutHero />} />
+        <Route path="/user-list" element={<UserList />} />
       </Routes>
     </>
   );

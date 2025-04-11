@@ -27,7 +27,7 @@ const OtherUserProfile = () => {
                   Follow
                 </button>
                 <button className="bg-gray-600 hover:bg-gray-700 text-white rounded-full py-2 px-4">
-                  Message
+                  Send Request
                 </button>
               </div>
               <div className="bg-white text-left p-4 rounded-lg shadow">

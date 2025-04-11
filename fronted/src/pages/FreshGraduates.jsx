@@ -9,12 +9,12 @@ import {
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import Image from "../assets/bgimage.webp";
 
 
 
 // Background Image URL from Unsplash (replace with your own if needed)
-const bgImage =
-  "https://cas.nyu.edu/content/nyu-as/cas/seniors/jcr:content/partop/hero/image.full.jpeg";
+const bgImage = Image;
 
 const FreshGraduates = () => {
   return (
