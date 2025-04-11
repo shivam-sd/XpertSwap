@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import "./App.css";
 import UserList from "./pages/UserList";
+import MentorRitikSir from "./components/MentorRitikSir";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/user-list" element={<UserList />} />
+        <Route path="/our-mentor" element={<MentorRitikSir />} />
       </Routes>
     </>
   );

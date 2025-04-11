@@ -68,6 +68,9 @@ const Navbar = () => {
               <Link to="/user-list" className="block px-4 py-2 hover:bg-gray-100">
                 User List
               </Link>
+              <Link to="/our-mentor" className="block px-4 py-2 hover:bg-gray-100">
+                Mentor
+              </Link>
             </motion.div>
           </div>
 
@@ -176,6 +179,12 @@ const Navbar = () => {
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       User List
+                    </Link>
+                    <Link
+                      to="/mentor"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Mentor
                     </Link>
                   </motion.div>
                 )}
