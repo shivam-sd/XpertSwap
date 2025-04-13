@@ -25,7 +25,7 @@ const slides = [
     description:
       "Hire talents that match your vision and boost team efficiency instantly.",
     image: hero3,
-    bgColor: "bg-gradient-to-b from-green-300 to-lime-200",
+    bgColor: "bg-gradient-to-b from-blue-700 to-white",
   },
 ];
 

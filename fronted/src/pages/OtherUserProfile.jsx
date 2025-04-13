@@ -2,12 +2,24 @@ import React from "react";
 import otherProfilelogo from "../assets/otherprofilelogo.jpg"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import {motion} from "framer-motion";
 
 const OtherUserProfile = () => {
+
+  const fadeIn = {
+    hidden: {opacity:0, y:20},
+    visible: {opacity : 1, y:0 , transition: {duration:0.8}}
+  }
+
+
   return (
     <div>
       <Header />
-      <div className="bg-[#6597c8] min-h-screen py-6">
+      <motion.div
+      initial= "hidden"
+      animate = "visible"
+      variants={fadeIn}
+      className="bg-[#6597c8] min-h-screen py-6">
         <div className="max-w-6xl mx-auto bg-[#2d67be] p-8 rounded-2xl shadow-lg text-gray-900">
           <div className="flex flex-col md:flex-row gap-6">
             {/* Left Side */}
@@ -47,12 +59,6 @@ const OtherUserProfile = () => {
                 <h3 className="text-lg font-bold mb-4">User Info</h3>
                 <p>
                   <b>Full Name:</b> Rahul Verma
-                </p>
-                <p>
-                  <b>Email:</b> rahul.designs@gmail.com
-                </p>
-                <p>
-                  <b>Phone:</b> 987654321
                 </p>
                 <p>
                   <b>Address:</b> Lucknow, Uttar Pradesh, 226001
@@ -121,7 +127,7 @@ const OtherUserProfile = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </div>
   );

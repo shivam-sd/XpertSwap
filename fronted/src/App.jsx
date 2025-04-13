@@ -7,7 +7,7 @@ import UserProfile from "./pages/UserProfile";
 import OtherUserProfile from "./pages/OtherUserProfile";
 import Chat from "./pages/Chat";
 import Request from "./pages/Request";
-import Nearby from "./pages/NearbyUser";
+import FindPeoples from "./pages/FindPeoples";
 import SkillMarket from "./pages/SkillMarketPlace";
 import FreshGraduates from "./pages/FreshGraduates";
 import Contact from "./pages/Contact";
@@ -27,7 +27,7 @@ function App() {
         <Route path="/other-user-profile" element={<OtherUserProfile />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/request" element={<Request />} />
-        <Route path="/nearby" element={<Nearby />} />
+        <Route path="/find-people" element={<FindPeoples />} />
         <Route path="/skill-marketplace" element={<SkillMarket />} />
         <Route path="/fresh-graduates" element={<FreshGraduates />} />
         <Route path="/contact" element={<Contact />} />

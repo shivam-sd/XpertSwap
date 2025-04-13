@@ -53,8 +53,8 @@ const Navbar = () => {
               >
                 Profile
               </Link>
-              <Link to="/nearby" className="block px-4 py-2 hover:bg-gray-100">
-                Nearby Users
+              <Link to="/find-people" className="block px-4 py-2 hover:bg-gray-100">
+                Find People's
               </Link>
               <Link
                 to="/skill-marketplace"
@@ -75,10 +75,10 @@ const Navbar = () => {
           </div>
 
           <Link
-            to="/nearby"
+            to="/find-people"
             className="hover:text-blue-700 text-base font-bold transition"
           >
-            Nearby Users
+            Find People's
           </Link>
           <Link
             to="/fresh-graduates"
@@ -103,14 +103,14 @@ const Navbar = () => {
           <div className="flex space-x-3">
             <Link
               to="/register"
-              className="bg-indigo-900 text-white hover:bg-indigo-800 px-4 py-2 text-base rounded-md transition flex items-center space-x-1"
+              className="bg-blue-700 text-white hover:bg-indigo-800 px-4 py-2 text-base rounded-md transition flex items-center space-x-1"
             >
               <span>Register</span>
               <FaChevronDown size={12} />
             </Link>
             <Link
               to="/login"
-              className="bg-indigo-900 text-white hover:bg-indigo-800 px-4 py-2 text-base rounded-md transition flex items-center space-x-1"
+              className="bg-blue-700 text-white hover:bg-indigo-800 px-4 py-2 text-base rounded-md transition flex items-center space-x-1"
             >
               <span>Login</span>
               <FaChevronDown size={12} />
@@ -157,10 +157,10 @@ const Navbar = () => {
                       Profile
                     </Link>
                     <Link
-                      to="/nearby"
+                      to="/find-people"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Nearby Users
+                      Find People's
                     </Link>
                     <Link
                       to="/skill-marketplace"
@@ -191,8 +191,8 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            <Link to="/nearby" className="block hover:text-blue-700">
-              Nearby User
+            <Link to="/find-people" className="block hover:text-blue-700">
+              Find People's
             </Link>
             <Link to="/fresh-graduates" className="block hover:text-blue-700">
               Fresh Graduates
@@ -207,13 +207,13 @@ const Navbar = () => {
             <div className="flex flex-col space-y-2 pt-2">
               <Link
                 to="/register"
-                className="bg-indigo-900 text-white hover:bg-indigo-800 px-4 py-2 rounded-md transition text-center"
+                className="bg-indigo-700 text-white hover:bg-indigo-800 px-4 py-2 rounded-md transition text-center"
               >
                 Register <FaChevronDown size={12} className="inline ml-1" />
               </Link>
               <Link
                 to="/login"
-                className="border border-indigo-900 text-blue-700 hover:bg-indigo-800 hover:text-white px-4 py-2 rounded-md transition text-center"
+                className="border border-indigo-700 text-blue-700 hover:bg-indigo-800 hover:text-white px-4 py-2 rounded-md transition text-center"
               >
                 Login <FaChevronDown size={12} className="inline ml-1" />
               </Link>

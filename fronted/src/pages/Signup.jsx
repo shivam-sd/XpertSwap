@@ -4,13 +4,25 @@ import Footer from "../components/Footer";
 // import register from "../assets/register.jpg";
 import authImage from "../assets/authImage.png";
 import { Link } from "react-router-dom";
-
+import {motion} from "framer-motion";
 const Signup = () => {
+
+  const fadeIn = {
+    hidden: {opacity:0, y:20},
+    visible: {opacity : 1, y:0 , transition: {duration:0.8}}
+  }
+
+
   return (
     <div>
       <Header />
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#4682b4] to-[#add8e6] p-4">
-        <div className="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden w-full max-w-5xl">
+      <div
+      className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#4682b4] to-[#add8e6] p-4">
+        <motion.div
+        initial = "hidden"
+        animate = "visible"
+        variants={fadeIn}
+        className="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden w-full max-w-5xl">
           {/* Info Section - Hidden on Mobile */}
           <div className="hidden md:flex flex-col items-center justify-center bg-blue-100 p-10 w-1/2 text-center">
             <img
@@ -83,7 +95,7 @@ const Signup = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
            
       </div>
       {/* Footer */}

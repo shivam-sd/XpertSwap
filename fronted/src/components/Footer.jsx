@@ -14,7 +14,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-indigo-900 to-blue-800 text-white w-full overflow-hidden lg:pb-0 pb-8">
+    <footer className="bg-gradient-to-b from-blue-700 to-gray-500 text-white w-full overflow-hidden lg:pb-0 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
           {/* Logo + Copyright */}

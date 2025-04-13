@@ -5,8 +5,9 @@ import { RiLinksLine } from "react-icons/ri";
 import { FaSearch } from "react-icons/fa";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
-const NearbyUser = () => {
+const FindPeoples = () => {
   const [showBackButton, setShowBackButton] = useState(false);
 
   const handleDotForBack = () => {
@@ -14,28 +15,29 @@ const NearbyUser = () => {
   };
 
   const usersData = [
-    { name: "John Doe", skills: ["Guitar", "Photographer"], distance: "2 km" },
-    { name: "Jane Smith", skills: ["React", "Deployment"], distance: "3 km" },
-    { name: "Alice Johnson", skills: ["Singing", "Dancing"], distance: "1 km" },
-    { name: "Bob Brown", skills: ["Teaching", "Playing"], distance: "4 km" },
-    { name: "Charlie Davis", skills: ["English", "Cooking"], distance: "5 km" },
-    { name: "David Wilson", skills: ["Editing", "Shooting"], distance: "2 km" },
-    {
-      name: "Eve Taylor",
-      skills: ["Graphic Design", "Video Editing"],
-      distance: "3 km",
-    },
-    {
-      name: "Frank Anderson",
-      skills: ["Development", "Programming"],
-      distance: "1 km",
-    },
+    { name: "John Doe", skills: ["Guitar", "Photographer"] },
+    { name: "Jane Smith", skills: ["React", "Deployment"] },
+    { name: "Alice Johnson", skills: ["Singing", "Dancing"] },
+    { name: "Bob Brown", skills: ["Teaching", "Playing"] },
+    { name: "Charlie Davis", skills: ["English", "Cooking"] },
+    { name: "David Wilson", skills: ["Editing", "Shooting"] },
+    { name: "Eve Taylor", skills: ["Graphic Design", "Video Create"] },
+    { name: "Frank Anderson", skills: ["Development", "Programming"] },
   ];
+
+  const fadeIn = {
+    hidden: {opacity:0, y:20},
+    visible: {opacity : 1, y:0 , transition: {duration:0.8}}
+  }
 
   return (
     <>
       <Header />
-      <div className="w-full min-h-screen bg-gray-100 flex items-center justify-center lg:p-10">
+      <motion.div
+      initial= "hidden"
+      animate = "visible"
+      variants={fadeIn}
+      className="w-full min-h-screen bg-gray-100 flex items-center justify-center lg:p-10">
         <div className="w-full max-w-6xl bg-gradient-to-t from-gray-100 to-blue-700 lg:rounded-lg shadow-lg p-5 relative">
           {/* Toggle Button on Mobile */}
           <div className="lg:hidden absolute right-5 top-6">
@@ -62,7 +64,7 @@ const NearbyUser = () => {
           <div className="mt-5 px-3  justify-between lg:pr-20 grid grid-cols-1 lg:grid-cols-2 gap-5 ">
             <div className="">
               <h3 className="text-4xl text-white font-bold font-Poppins">
-                Explore Nearby
+              GlobeConnect
               </h3>
               <p className="text-lg font-medium font-Poppins mt-2 text-gray-100">
                 Connect with people in your area to exchange skills
@@ -75,7 +77,7 @@ const NearbyUser = () => {
             <div className="search flex items-center bg-white rounded-full shadow-md hover:shadow-lg transition outline-none w-full h-11 pl-5">
               <input
                 type="text"
-                placeholder="Search Nearby"
+                placeholder="Search People's"
                 className="outline-none w-full text-md font-bold -tracking-tighter font-Poppins p-1"
               />
               <FaSearch className="bg-blue-600 h-full w-10 cursor-pointer p-1 text-md text-3xl text-white rounded-r-full" />
@@ -91,7 +93,7 @@ const NearbyUser = () => {
               >
                 <div className="flex items-center gap-4 mb-4">
                   <img
-                    src="https://sm.ign.com/ign_pk/cover/a/avatar-gen/avatar-generations_rpge.jpg"
+                    src="https://www.nimble-made.com/cdn/shop/articles/business-formal-men_30509580-8eff-4a45-bbae-3e6122c8f52a.jpg?v=1743535951"
                     alt={user.name}
                     className="w-16 h-16 rounded-full border-2 border-gray-300 object-cover"
                   />
@@ -103,17 +105,14 @@ const NearbyUser = () => {
                   {user.skills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="bg-blue-600 text-white text-sm font-Poppins px-3 py-1 rounded-full"
+                      className="bg-blue-600 text-white text-sm font-Poppins p-2 shadow-md rounded-lg"
                     >
                       {skill}
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center justify-between">
-                  <p className="text-green-600 font-semibold font-Poppins">
-                    {user.distance}
-                  </p>
-                  <button className="bg-red-500 text-white font-semibold font-Poppins px-4 py-1 rounded hover:bg-red-600 transition">
+                <div className="flex items-center justify-end">
+                  <button className="bg-green-500 text-white font-semibold font-Poppins px-4 py-1 rounded hover:bg-blue-600 transition shadow-md">
                     View
                   </button>
                 </div>
@@ -121,10 +120,10 @@ const NearbyUser = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </>
   );
 };
 
-export default NearbyUser;
+export default FindPeoples;

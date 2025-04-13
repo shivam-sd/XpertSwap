@@ -3,6 +3,7 @@ import { GiBodySwapping } from "react-icons/gi";
 import { FaArrowLeft } from "react-icons/fa";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import {motion} from "framer-motion";
 
 const Request = () => {
   // Sample data for skill requests
@@ -80,10 +81,22 @@ const Request = () => {
     "Music Production",
   ];
 
+
+  const fadeIn = {
+    hidden: {opacity:0, y:20},
+    visible: {opacity : 1, y:0 , transition: {duration:0.8}}
+  }
+
+ 
+
   return (
     <>
       <Header />
-      <div className="min-h-screen flex justify-center items-start bg-gradient-to-t from-white to-blue-700 p-2 sm:p-4 lg:p-6">
+      <motion.div
+       initial= "hidden"
+       animate = "visible"
+       variants={fadeIn}
+      className="min-h-screen flex justify-center items-start bg-gradient-to-t from-white to-blue-700 p-2 sm:p-4 lg:p-6">
         <div className="w-full max-w-5xl rounded-xl shadow-2xl backdrop-blur-sm p-4 sm:p-6">
           {/* Header */}
           <div className="flex items-center justify-between text-white text-xl sm:text-2xl lg:text-3xl font-bold mb-6 p-3 rounded-lg">
@@ -212,7 +225,7 @@ const Request = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </>
   );

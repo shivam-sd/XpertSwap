@@ -1,94 +1,121 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    problem: "",
-  });
+  const [result, setResult] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
-  const handleSubmit = (e) => {
+  const handleContect = async (e) => {
     e.preventDefault();
-    console.log("SwapSkills Contact Form Submitted:", formData);
-    // Add logic like API call here
+
+    const formData = new FormData(e.target);
+
+    formData.append("access_key", "997fa1ac-8b53-47a0-a76e-aea138e5f89b");
+    setResult("...Sending Your Problem");
+    const response = await axios.post(
+      "https://api.web3forms.com/submit",
+      formData
+    );
+    const data = response.data;
+    console.log("Form Data", data);
+
+    if (data.success) {
+      setResult("Your Problem Successfully Send");
+      toast.success("We Will Be Contact Soon", {
+        position: "top-center",
+      });
+      e.target.reset();
+    } else {
+      toast.error(data.message);
+    }
   };
 
   return (
     <>
-    <Header />
-    <section className="bg-indigo-50 py-12 px-4 w-full">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-indigo-900">Contact SkillLinkr</h2>
-          <p className="text-gray-600 mt-2">
-            Have questions or facing issues? Let us know. We're here to help!
-          </p>
-        </div>
-
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white shadow-md rounded-xl p-6 space-y-5"
-        >
-          {/* Name */}
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Your name"
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 outline-none"
-            />
+      <Header />
+      <motion.section
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        className="py-12 px-4 w-full bg-gradient-to-b from-blue-600 to-white"
+      >
+        <div className="max-w-2xl mx-auto p-3 shadow-2xl">
+          <div className="text-center mb-5">
+            <h2 className="text-3xl font-bold text-white font-Poppins">
+              Contact SkillLinkr
+            </h2>
+            <p className="text-gray-200 mt-2 text-lg">
+              Have questions or facing issues? Let us know. We're here to help!
+            </p>
           </div>
 
-          {/* Email */}
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you@example.com"
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 outline-none"
-            />
-          </div>
-
-          {/* Problem */}
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">Your Problem</label>
-            <textarea
-              name="problem"
-              value={formData.problem}
-              onChange={handleChange}
-              placeholder="Write your issue or message..."
-              rows="4"
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 outline-none"
-            ></textarea>
-          </div>
-
-          {/* Submit */}
-          <button
-            type="submit"
-            className="w-full bg-indigo-900 hover:bg-indigo-800 text-white py-2 rounded-md transition"
+          <form
+            className=" shadow-xl rounded-xl p-6 space-y-5"
+            onSubmit={handleContect}
           >
-            Send Message
-          </button>
-        </form>
-      </div>
-    </section>
-    <Footer />
+            {/* Name */}
+            <div>
+              <label className="block text-xl font-bold text-white mb-1">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your FullName"
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 outline-none"
+              />
+            </div>
+
+            {/* Email */}
+            <div>
+              <label className="block text-xl font-bold text-white mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 outline-none"
+              />
+            </div>
+
+            {/* Problem */}
+            <div>
+              <label className="block text-xl font-bold text-white  mb-1">
+                Your Problem
+              </label>
+              <textarea
+                name="problem"
+                placeholder="Write your issue or message..."
+                rows="4"
+                required
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 outline-none"
+              ></textarea>
+            </div>
+
+<p className="w-full text-center text-blue-700 font-bold text-lg font-Poppins">{result}</p>
+
+            {/* Submit */}
+            <button
+              type="submit"
+              className="w-full bg-blue-700 hover:bg-indigo-800 text-white py-2 rounded-md transition"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </motion.section>
+      <Footer />
     </>
   );
 };

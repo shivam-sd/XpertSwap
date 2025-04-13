@@ -10,15 +10,15 @@ const HomeInfo = () => {
       {/* Stats */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-12">
         <div className="bg-white shadow-lg p-6 rounded-xl">
-          <h3 className="text-3xl font-bold text-indigo-800">1+</h3>
+          <h3 className="text-3xl font-bold text-indigo-800">2+</h3>
           <p className="text-sm text-gray-600">Skills Exchanged</p>
         </div>
         <div className="bg-white shadow-lg p-6 rounded-xl">
-          <h3 className="text-3xl font-bold text-indigo-800">2+</h3>
+          <h3 className="text-3xl font-bold text-indigo-800">6+</h3>
           <p className="text-sm text-gray-600">Active Users</p>
         </div>
         <div className="bg-white shadow-lg p-6 rounded-xl">
-          <h3 className="text-3xl font-bold text-indigo-800">30+</h3>
+          <h3 className="text-3xl font-bold text-indigo-800">40+</h3>
           <p className="text-sm text-gray-600">Skills Categories</p>
         </div>
       </div>

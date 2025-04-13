@@ -5,6 +5,7 @@ import avatar1 from "../assets/otherprofilelogo.jpg";
 import avatar2 from "../assets/profilelogo.jpg";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import {motion} from "framer-motion";
 
 const users = [
   { name: "Rahul Verma", avatar: avatar1, status: "active" },
@@ -30,11 +31,22 @@ const statusColors = {
   inactive: "bg-red-500 text-white",
 };
 
+
+const fadeIn = {
+  hidden: {opacity:0, y:20},
+  visible: {opacity : 1, y:0 , transition: {duration:0.8}}
+}
+
+
 const UserList = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gradient-to-r from-purple-700 to-blue-500 p-6">
+      <motion.div 
+      initial = "hidden"
+      animate = "visible"
+      variants={fadeIn}
+      className="min-h-screen bg-gradient-to-r from-purple-700 to-blue-500 p-6">
         <Link
           to="/"
           className="inline-block mb-6 px-6 py-3 bg-white text-blue-600 font-bold rounded-full shadow-md hover:bg-blue-600 hover:text-white transition"
@@ -95,7 +107,7 @@ const UserList = () => {
             </tbody>
           </table>
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </>
   );

@@ -2,12 +2,24 @@ import React from "react";
 import ritiksir from "../assets/ritiksir.jpg";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
+import {motion} from "framer-motion";
+ 
 const MentorRitikSir = () => {
+
+  const fadeIn = {
+    hidden: {opacity:0, y:20},
+    visible: {opacity : 1, y:0 , transition: {duration:0.8}}
+  }
+
+
   return (
     <>
       <Header />
-      <div className="w-full min-h-screen bg-gradient-to-br from-blue-600 to-blue-200 flex items-center justify-center p-4">
+      <motion.div
+      initial = "hidden"
+      animate = "visible"
+      variants={fadeIn}
+      className="w-full min-h-screen bg-gradient-to-br from-blue-600 to-blue-200 flex items-center justify-center p-4">
         <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-10 max-w-4xl w-full text-center">
           {/* Mentor Photo */}
           <div className="flex flex-col items-center mb-6">
@@ -48,7 +60,7 @@ const MentorRitikSir = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </>
   );
