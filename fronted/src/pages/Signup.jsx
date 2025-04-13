@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 // import register from "../assets/register.jpg";
-import authImage from "../assets/authImage.png";
+import authImage from "../assets/authImage.jpg";
 import { Link } from "react-router-dom";
 import {motion} from "framer-motion";
 const Signup = () => {
@@ -28,7 +28,7 @@ const Signup = () => {
             <img
               src={authImage}
               alt="SkillSwap Illustration"
-              className="w-72 mb-6"
+              className="w-96 mb-6 object-cover rounded-md"
             />
             <p className="text-gray-700 text-lg">
               Swap what you know for what you want to learn.

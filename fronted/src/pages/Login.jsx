@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 // import register from "../assets/register.jpg";
-import authImage from "../assets/authImage.png";
+import authImage from "../assets/authImage.jpg";
 import { Link } from "react-router-dom";
 import {motion} from "framer-motion";
 const Signup = () => {
@@ -64,7 +64,7 @@ const Signup = () => {
                   type="submit"
                   className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium"
                 >
-                  Sign Up
+                  Log In
                 </button>
               </form>
               <p className="text-center text-sm mt-4">
