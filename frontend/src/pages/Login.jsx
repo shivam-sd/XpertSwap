@@ -56,6 +56,7 @@ const Login = () => {
 
     } catch (err) {
       // console.error("Login Error:", err);
+      setLoading(false);
       toast.error(err.response?.data?.error || "Invalid Credentials !", {
         position: "top-center",
       });
