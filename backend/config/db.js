@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ConnectDataBase = () => {
-    console.log("Mongo URI:", process.env.MONGO_URI); // Debug line
+    // console.log("Mongo URI:", process.env.MONGO_URI); // Debug line
 
     mongoose.connect(process.env.MONGO_URI)
         .then(() => console.log("Database Connected To The Atlas"))

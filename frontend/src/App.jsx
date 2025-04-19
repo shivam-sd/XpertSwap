@@ -49,7 +49,7 @@ function App() {
 
     } catch (err) {
       console.error("Error fetching user details:", err);
-      toast.error(err.response?.data?.errors || "You automatic logout in 24 hours, login again", {
+      toast.error(err.response?.data?.errors || "login again", {
         position: "top-center",
       });
     }

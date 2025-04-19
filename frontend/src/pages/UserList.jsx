@@ -49,7 +49,7 @@ const UserList = () => {
       // console.log("all users" , response);
       const allUsers = response?.data?.allUsers;
       setAllUsers(allUsers);
-      toast.success("all the learners" , {position:"top-center" , autoClose:1000});
+      toast.success("All Learners" , {position:"top-center" , autoClose:1000});
     }catch(err){
       toast.error(err.error, {position:"top-center"});
     }

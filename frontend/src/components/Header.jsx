@@ -23,7 +23,7 @@ const Navbar = () => {
             to={"/"}
             className="text-lg font-bold text-blue-800 leading-tight"
           >
-          <img src={logo} alt="" className="w-14"/>
+            <img src={logo} alt="" className="w-14" />
 
             {/* <span className="block leading-none text-xl">Xpert</span>
             <span className="text-green-600 text-xl">Swap</span> */}
@@ -62,31 +62,36 @@ const Navbar = () => {
               >
                 Profile
               </Link> */}
-              {
-                user ? (<>
-                <Link
-                to="/find-people"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                Find People's
-              </Link>
-              <Link
-                to="/skill-marketplace"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                Skill Marketplace
-              </Link>
-              <Link to="/request" className="block px-4 py-2 hover:bg-gray-100">
-                Skill Request
-              </Link>
-              <Link
-                to="/user-list"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                User List
-              </Link>
-                </>) : <></>
-              }
+              {user ? (
+                <>
+                  <Link
+                    to="/find-people"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Find People's
+                  </Link>
+                  <Link
+                    to="/skill-marketplace"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Skill Marketplace
+                  </Link>
+                  <Link
+                    to="/request"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Skill Request
+                  </Link>
+                  <Link
+                    to="/user-list"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    User List
+                  </Link>
+                </>
+              ) : (
+                <></>
+              )}
               <Link
                 to="/our-mentor"
                 className="block px-4 py-2 hover:bg-gray-100"
@@ -102,28 +107,36 @@ const Navbar = () => {
             </motion.div>
           </div>
 
-       {user ? (<>
-       
-        <Link
-            to="/find-people"
-            className="hover:text-blue-700 text-base font-bold transition"
-          >
-            Find People's
-          </Link></>) : <></>}
+          {user ? (
+            <>
+              <Link
+                to="/find-people"
+                className="hover:text-blue-700 text-base font-bold transition"
+              >
+                Find People's
+              </Link>
+            </>
+          ) : (
+            <></>
+          )}
           <Link
             to="/fresh-graduates"
             className="hover:text-blue-700 text-base font-bold transition"
           >
             Fresh Graduates
           </Link>
-        {user ? (<>
-          <Link
-            to="/dashboard"
-            className="hover:text-blue-700 text-base font-bold transition"
-          >
-            Dashboard
-          </Link>
-        </>) : <></>}
+          {user ? (
+            <>
+              <Link
+                to="/dashboard"
+                className="hover:text-blue-700 text-base font-bold transition"
+              >
+                Dashboard
+              </Link>
+            </>
+          ) : (
+            <></>
+          )}
           <Link
             to="/contact"
             className="hover:text-blue-700 text-base font-bold transition"
@@ -199,48 +212,62 @@ const Navbar = () => {
                     >
                       Profile
                     </Link> */}
-                    {user ? (<>
-                      <Link
-                      to="/find-people"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Find People's
-                    </Link>
-                    <Link
-                      to="/skill-marketplace"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Skill Marketplace
-                    </Link>
-                    <Link
-                      to="/request"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Skill Request
-                    </Link>
-                    <Link
-                      to="/user-list"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      User List
-                    </Link>
-                    </>) : <></>} 
+                    {user ? (
+                      <>
+                        <Link
+                          to="/find-people"
+                          className="block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Find People's
+                        </Link>
+                        <Link
+                          to="/skill-marketplace"
+                          className="block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Skill Marketplace
+                        </Link>
+                        <Link
+                          to="/request"
+                          className="block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Skill Request
+                        </Link>
+                        <Link
+                          to="/user-list"
+                          className="block px-4 py-2 hover:bg-gray-100"
+                        >
+                          User List
+                        </Link>
+                      </>
+                    ) : (
+                      <></>
+                    )}
                     <Link
                       to="/our-mentor"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       Mentor
                     </Link>
+                    <Link
+                      to="/our-privacy-policy"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Privacy Policy
+                    </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {user ? (<>
-              <Link to="/find-people" className="block hover:text-blue-700">
-              Find People's
-            </Link>
-            </>) : <></>}
+            {user ? (
+              <>
+                <Link to="/find-people" className="block hover:text-blue-700">
+                  Find People's
+                </Link>
+              </>
+            ) : (
+              <></>
+            )}
             <Link to="/fresh-graduates" className="block hover:text-blue-700">
               Fresh Graduates
             </Link>
@@ -255,8 +282,15 @@ const Navbar = () => {
 
             {user?.name ? (
               <>
-                <Link to="/user-profile" className="w-full flex align-center justify-center">
-                  <FaRegUserCircle className="text-3xl text-blue-700 font-Poppins duration-300 hover:scale-110 cursor-pointer" />&nbsp; &nbsp;<p className="flex items-center justify-center text-lg text-blue-700 font-bold font-Poppins">Profile</p>
+                <Link
+                  to="/user-profile"
+                  className="w-full flex align-center justify-center"
+                >
+                  <FaRegUserCircle className="text-3xl text-blue-700 font-Poppins duration-300 hover:scale-110 cursor-pointer" />
+                  &nbsp; &nbsp;
+                  <p className="flex items-center justify-center text-lg text-blue-700 font-bold font-Poppins">
+                    Profile
+                  </p>
                 </Link>
               </>
             ) : (

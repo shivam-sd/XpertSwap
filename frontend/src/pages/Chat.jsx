@@ -5,9 +5,12 @@ import Footer from "../components/Footer";
 
 export default function Chat() {
   const [messages, setMessages] = useState([
-    { sender: "Aman", content: "Hey about (Flagraphy)." },
-    { sender: "You", content: "nmn...dc lk.ab.a eoel" },
-    { sender: "Aman", content: "Check dead onion!" },
+    { sender: "Aman", content: "Hey i want learn react." },
+    { sender: "You", content: "okk mai shikha dunga." },
+    { sender: "Aman", content: "thanks kab se start kre!" },
+    { sender: "You", content: "aaj se hi lekin mujhe node js shikhna hai." },
+    { sender: "Aman", content: "okk mai tumhe node js shikha dunga!" },
+    { sender: "You", content: "thanks" },
   ]);
   const [input, setInput] = useState("");
 
@@ -24,7 +27,7 @@ export default function Chat() {
         <div className="flex items-center justify-between border-b pb-3 border-white/30">
           <div className="flex items-center gap-2">
             <img
-              src="https://via.placeholder.com/40"
+              src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
               alt="Aman"
               className="w-10 h-10 rounded-full border border-white"
             />

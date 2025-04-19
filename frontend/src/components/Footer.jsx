@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
+import { FaXTwitter } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 
 
@@ -57,7 +58,7 @@ const Footer = () => {
         {/* Social Icons */}
         <div className="flex justify-center space-x-5 text-gray-300 text-lg">
           <Link to="https://www.facebook.com/share/18aaamPvow/" target="_blank" className="hover:text-white"><FaFacebook /></Link>
-          <Link to="https://x.com/XpertSwap?t=C4jBSs94EK8LOwPpzala7g&s=08" target="_blank" className="hover:text-white"><FaTwitter /></Link>
+          <Link to="https://x.com/XpertSwap?t=C4jBSs94EK8LOwPpzala7g&s=08" target="_blank" className="hover:text-white"><FaXTwitter /></Link>
           <Link to="https://www.linkedin.com/company/xpertswap/" target="_blank" className="hover:text-white"><FaLinkedin /></Link>
           <Link to="https://www.instagram.com/xpertswap?igsh=Z3ZrNXpyYTBkeTY0" target="_blank" className="hover:text-white"><FaInstagram /></Link>
           <Link to="https://youtube.com/@xpertswap?si=UD2G-GNkWiBwBYUt" target="_blank" className="hover:text-white"><IoLogoYoutube /></Link>
