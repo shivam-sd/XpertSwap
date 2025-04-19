@@ -42,7 +42,7 @@ function App() {
       });
 
       const userData = response.data.user;
-      console.log("User Data:", userData);
+      // console.log("User Data:", userData);
 
       setUser(userData);
       dispatch(setUserDetails({ user: userData }));
