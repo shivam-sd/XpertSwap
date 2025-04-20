@@ -264,6 +264,9 @@ const Navbar = () => {
                 <Link to="/find-people" className="block hover:text-blue-700">
                   Find People's
                 </Link>
+                <Link to="/dashboard" className="block hover:text-blue-700">
+                  Dashboard
+                </Link>
               </>
             ) : (
               <></>
@@ -271,9 +274,7 @@ const Navbar = () => {
             <Link to="/fresh-graduates" className="block hover:text-blue-700">
               Fresh Graduates
             </Link>
-            <Link to="/dashboard" className="block hover:text-blue-700">
-              Dashboard
-            </Link>
+
             <Link to="/contact" className="block hover:text-blue-700">
               Contact
             </Link>
