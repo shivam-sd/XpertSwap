@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { SendHorizonal, MoreVertical } from "lucide-react";
+import { FaVideo } from "react-icons/fa6";
+import {useNavigate} from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -13,6 +15,12 @@ export default function Chat() {
     { sender: "You", content: "thanks" },
   ]);
   const [input, setInput] = useState("");
+  const [join , setjoin] = useState("123");
+
+  const navigate = useNavigate();
+  const handleVideoCall = () => {
+    navigate(`/call/${join}`);
+  }
 
   const sendMessage = () => {
     if (input.trim() === "") return;
@@ -36,7 +44,11 @@ export default function Chat() {
               <p className="text-xs opacity-70">Online</p>
             </div>
           </div>
+          <div className="flex items-center gap-11">
+            <input type="text"  value={join} onChange={(e) => setjoin(e.target.value)} className="hidden" />
+          <FaVideo className="text-blue-700 cursor-pointer text-xl" onClick={handleVideoCall}/>
           <MoreVertical className="text-black" />
+          </div>
         </div>
         <div className="flex-1 overflow-y-auto mt-3 space-y-3 scrollbar-thin scrollbar-thumb-white/50 scrollbar-track-transparent">
           {messages.map((msg, index) => (

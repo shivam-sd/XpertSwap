@@ -106,7 +106,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                <span className="absolute right-14 lg:bottom-40 md:bottom-40 bottom-[145px] cursor-pointer text-sm text-blue-700 font-bold" onClick={handleToggelPassword}>{showPassword ? "hide" : "show"}</span>
+                <span className="absolute right-14 lg:bottom-40 bottom-[145px] cursor-pointer text-sm text-blue-700 font-bold" onClick={handleToggelPassword}>{showPassword ? "hide" : "show"}</span>
                 <button
                   type="submit"
                   disabled={loading}

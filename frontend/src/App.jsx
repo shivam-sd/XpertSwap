@@ -22,6 +22,7 @@ import { setUserDetails } from "./store/userSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { toast } from "react-toastify";
+import VideoCall from "./pages/VideoCall";
 
 import "./App.css";
 
@@ -79,6 +80,7 @@ function App() {
         <Route path="/user-list" element={<UserList />} />
         <Route path="/our-mentor" element={<MentorRitikSir />} />
         <Route path="/our-privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/call/:id" element={<VideoCall />} />
       </Routes>
     </Context.Provider>
   );
