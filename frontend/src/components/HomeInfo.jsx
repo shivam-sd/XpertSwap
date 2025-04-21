@@ -13,11 +13,11 @@ const HomeInfo = () => {
   const fetchAllUsers = async () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_USERS_BASE_URL}all/users`);
-      console.log("All User" , response);
+      // console.log("All User" , response);
       const users = response?.data?.allUsers || [];
       setAllUsers(users);
     } catch (err) {
-      toast.error("Failed to fetch users", { position: "top-center" });
+      // toast.error("Failed to fetch users", { position: "top-center" });
     }
   };
 
