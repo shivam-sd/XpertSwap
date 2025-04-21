@@ -23,6 +23,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { toast } from "react-toastify";
 import VideoCall from "./pages/VideoCall";
+import ProtectedRoutes from "./pages/ProtectedRoutes";
 
 import "./App.css";
 
@@ -66,21 +67,21 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/user-profile" element={<UserProfile />} />
-        <Route path="/edit-profile/:id" element={<EditUserProfile />} />
-        <Route path="/other-user-profile/:id" element={<OtherUserProfile />} />
-        <Route path="/send-request" element={<SendRequestForm />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/request" element={<Request />} />
-        <Route path="/find-people" element={<FindPeoples />} />
-        <Route path="/skill-marketplace" element={<SkillMarket />} />
+        <Route path="/user-profile" element={<ProtectedRoutes Component={UserProfile} />} />
+        <Route path="/edit-profile/:id" element={<ProtectedRoutes Component={EditUserProfile} />} />
+        <Route path="/other-user-profile/:id" element={<ProtectedRoutes Component={OtherUserProfile} />} />
+        <Route path="/send-request" element={<ProtectedRoutes Component={SendRequestForm} />} />
+        <Route path="/chat" element={<ProtectedRoutes Component={Chat} />} />
+        <Route path="/request" element={<ProtectedRoutes Component={Request} />} />
+        <Route path="/find-people" element={<ProtectedRoutes Component={FindPeoples} />} />
+        <Route path="/skill-marketplace" element={<ProtectedRoutes Component={SkillMarket} />} />
         <Route path="/fresh-graduates" element={<FreshGraduates />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/user-list" element={<UserList />} />
+        <Route path="/dashboard" element={<ProtectedRoutes Component={Dashboard} />} />
+        <Route path="/user-list" element={<ProtectedRoutes Component={UserList} />} />
         <Route path="/our-mentor" element={<MentorRitikSir />} />
         <Route path="/our-privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/call/:id" element={<VideoCall />} />
+        <Route path="/call/:id" element={<ProtectedRoutes Component={VideoCall} />} />
       </Routes>
     </Context.Provider>
   );

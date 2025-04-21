@@ -12,7 +12,6 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import Image from "../assets/bgimage.webp";
 
-// Background Image URL from Unsplash (replace with your own if needed)
 const bgImage = Image;
 
 const FreshGraduates = () => {
@@ -20,6 +19,8 @@ const FreshGraduates = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
+
+  const Loggedin = localStorage.getItem("token");
 
   return (
     <>
@@ -87,13 +88,13 @@ const FreshGraduates = () => {
         </div>
       </motion.section>
 
-      <motion.div
+      {/* Who Can Apply Section */}
+      <motion.section
         className="w-full overflow-x-hidden"
         initial="hidden"
         animate="visible"
         variants={fadeIn}
       >
-        {/* Who Can Apply Section */}
         <section className="bg-cyan-100 py-12 px-4 text-center flex flex-col items-center gap-3">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">
             Who Can Apply
@@ -103,7 +104,7 @@ const FreshGraduates = () => {
             {[
               {
                 id: "01",
-                text: "Individuals certified by XpertSwap ",
+                text: "Individuals certified by XpertSwap",
               },
               {
                 id: "02",
@@ -129,12 +130,14 @@ const FreshGraduates = () => {
             ))}
           </div>
 
-          <Link
-            to={"/register"}
-            className="mt-10 bg-blue-700 text-white px-6 py-2 rounded-md hover:bg-indigo-800 transition text-sm font-medium"
-          >
-            Register Now
-          </Link>
+          {!Loggedin && (
+            <Link
+              to="/register"
+              className="mt-10 bg-blue-700 text-white px-6 py-2 rounded-md hover:bg-indigo-800 transition text-sm font-medium"
+            >
+              Register Now
+            </Link>
+          )}
         </section>
 
         {/* CTA Section */}
@@ -151,16 +154,18 @@ const FreshGraduates = () => {
                 We’ll be glad to have you with us, see you soon!
               </p>
             </div>
-            <Link
-              to={"/register"}
-              className="bg-white text-indigo-900 px-5 py-2 rounded-md text-sm font-semibold hover:bg-gray-200 transition"
-            >
-              Register
-            </Link>
+            {!Loggedin && (
+              <Link
+                to="/register"
+                className="bg-white text-indigo-900 px-5 py-2 rounded-md text-sm font-semibold hover:bg-gray-200 transition"
+              >
+                Register
+              </Link>
+            )}
           </motion.div>
         </section>
         <Footer />
-      </motion.div>
+      </motion.section>
     </>
   );
 };
