@@ -11,13 +11,13 @@ const Request = () => {
     {
       name: "Anna Smith",
       offerSkill: "Photography",
-      wantToLearn: "Guitar",
+      wantToLearn: "Editing",
       avatar:
         "https://png.pngtree.com/png-clipart/20190516/original/pngtree-cute-girl-avatar-material-png-image_4023832.jpg",
     },
     {
       name: "John Doe",
-      offerSkill: "Cooking",
+      offerSkill: "Animation",
       wantToLearn: "React",
       avatar: "https://cdn-icons-png.flaticon.com/512/147/147144.png",
     },
@@ -29,7 +29,7 @@ const Request = () => {
     },
     {
       name: "Michael Brown",
-      offerSkill: "Guitar",
+      offerSkill: "Digital Marketing",
       wantToLearn: "Public Speaking",
       avatar: "https://cdn-icons-png.flaticon.com/512/2922/2922506.png",
     },
