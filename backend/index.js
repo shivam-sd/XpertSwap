@@ -21,6 +21,8 @@ app.use(cors({
     credentials:true
 }));
 
+console.log(process.env.FRONTEND_BASE_URL)
+
 app.use("/users" , UserRouter);
 app.use("/all" , AllUsers);
 

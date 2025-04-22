@@ -31,9 +31,9 @@ const AboutHero = () => {
             With curated matches and a growing talent network, XpertSwap empowers users to unlock opportunities together.
           </p>
 
-          <button className="mt-6 px-6 py-2 bg-white text-indigo-900 font-semibold rounded-md shadow hover:bg-gray-200 transition">
+          {/* <button className="mt-6 px-6 py-2 bg-white text-indigo-900 font-semibold rounded-md shadow hover:bg-gray-200 transition">
             Know More
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

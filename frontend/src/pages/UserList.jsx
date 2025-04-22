@@ -115,10 +115,12 @@ const UserList = () => {
                     </span>
                   </td>
                   <td className="p-4 text-center space-x-4">
+                    <Link to={"/send-request"}>
                     <FaEnvelope
                       className="inline text-blue-600 hover:text-purple-600 transition-transform hover:scale-125 cursor-pointer"
                       title="Send Email"
                     />
+                    </Link>
                     <Link to={`/other-user-profile/${user._id}`} title="View Profile">
                       <FaEye className="inline text-blue-600 hover:text-purple-600 transition-transform hover:scale-125 cursor-pointer" />
                     </Link>

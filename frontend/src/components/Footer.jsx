@@ -31,7 +31,7 @@ const Footer = () => {
             <Link
             to={"/"} 
              className="text-2xl font-bold">
-              Xpert<span className="text-green-400">Swap</span>
+              Xpert<span className="text-white">Swap</span>
             </Link>
             <p className="text-sm mt-1 text-gray-300">
               © {new Date().getFullYear()} XpertSwap. All Rights Reserved.

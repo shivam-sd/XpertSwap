@@ -9,11 +9,11 @@ import store from "./store/store.js";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <StrictMode>
+    {/* <StrictMode> */}
       <ToastContainer />
       <Provider store={store}>
       <App />
       </Provider>
-    </StrictMode>
+    {/* </StrictMode> */}
   </BrowserRouter>
 );
