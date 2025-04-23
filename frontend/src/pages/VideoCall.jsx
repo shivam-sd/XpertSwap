@@ -27,7 +27,7 @@ const VideoCall = () => {
       sharedLinks: [
         {
           name: "Copy link",
-          url: `https://xpertswap.netlify.app/call/${id}`,
+          url: `https://xpertswap.com/call/${id}`,
         },
       ],
       scenario: {
