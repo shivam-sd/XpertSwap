@@ -13,7 +13,7 @@ import FreshGraduates from "./pages/FreshGraduates";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import UserList from "./pages/UserList";
-import MentorRitikSir from "./components/MentorRitikSir";
+import OurTeam from "./components/OurTeam";
 import EditUserProfile from "./pages/EditUserProfile";
 import Context from "./context/Context";
 import PrivacyPolicy from "./pages/PrivacyProlicy";
@@ -79,7 +79,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/dashboard" element={<ProtectedRoutes Component={Dashboard} />} />
         <Route path="/user-list" element={<ProtectedRoutes Component={UserList} />} />
-        <Route path="/our-mentor" element={<MentorRitikSir />} />
+        <Route path="/our-team" element={<OurTeam />} />
         <Route path="/our-privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/call/:id" element={<ProtectedRoutes Component={VideoCall} />} />
       </Routes>

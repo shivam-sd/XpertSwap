@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import authImage from "../assets/authImage.jpg";
@@ -11,6 +11,14 @@ import { IoLogoFacebook } from "react-icons/io";
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [agreeToTerms, setAgreeTOTerms] = useState(false);
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      navigate("/");
+    }
+  }, []);
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -185,6 +193,27 @@ const Signup = () => {
                   onChange={handleChange}
                   required
                 />
+                <div className="text-center flex items-center justify-center gap-2">
+                  <input
+                    type="checkbox"
+                    className="cursor-pointer"
+                    id="our-privacy-policy"
+                    checked={agreeToTerms}
+                    onChange={(e) => setAgreeTOTerms(e.target.checked)}
+                  />
+                  <label
+                    htmlFor="our-privacy-policy"
+                    className="cursor-pointer text-gray-700"
+                  >
+                    I agree to the{" "}
+                    <Link
+                      to={"/our-privacy-policy"}
+                      className="text-blue-500 font-bold"
+                    >
+                      Terms & Conditions
+                    </Link>
+                  </label>
+                </div>
                 <span
                   className="absolute right-14 lg:bottom-40 md:bottom-40 bottom-[145px] cursor-pointer text-sm text-blue-700 font-bold"
                   onClick={handleToggelPassword}
@@ -193,8 +222,12 @@ const Signup = () => {
                 </span>
                 <button
                   type="submit"
-                  disabled={loading}
-                  className={`w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium flex items-center justify-center ${loading ? "bg-blue-300 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 text-white"} `}
+                  disabled={loading || !agreeToTerms}
+                  className={`w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium flex items-center justify-center ${
+                    loading || !agreeToTerms
+                      ? "bg-blue-300 cursor-not-allowed"
+                      : "bg-blue-500 hover:bg-blue-600 text-white"
+                  } `}
                 >
                   {loading ? (
                     <>

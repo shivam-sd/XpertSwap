@@ -207,7 +207,7 @@ const Request = () => {
                 return (
                   <>
                     <div
-                      className="flex duration-300 items-center gap-3 w-full border border-gray-300 p-1 shadow-xl bg-transparent rounded-md  hover:bg-gradient-to-t from-lime-300 to-emerald-300 cursor-pointer"
+                      className="flex duration-300 items-center gap-3 w-full border border-gray-300 p-1 shadow-xl bg-transparent rounded-md  hover:bg-gradient-to-t to-white from-blue-400  cursor-pointer"
                       key={idx}
                     >
                       <img

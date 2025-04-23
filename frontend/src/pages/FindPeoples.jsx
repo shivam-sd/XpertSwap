@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
+import poster from "../assets/Poster-xpertswap.png"
 
 const FindPeoples = () => {
   const [showBackButton, setShowBackButton] = useState(false);
@@ -60,7 +61,7 @@ const FindPeoples = () => {
         initial="hidden"
         animate="visible"
         variants={fadeIn}
-        className="w-full min-h-screen bg-gray-100 flex items-center justify-center lg:p-10"
+        className="w-full min-h-screen bg-gray-100 flex items-center justify-center lg:p-10 relative"
       >
         <div className="w-full h-screen max-w-6xl bg-gradient-to-t from-gray-100 to-blue-700 lg:rounded-lg shadow-lg p-5 relative">
           {/* Toggle Button on Mobile */}
@@ -108,8 +109,8 @@ const FindPeoples = () => {
 
           {/* Conditional Messages */}
           {searchTerm.trim() === "" && (
-            <div className="text-Black text-center text-2xl font-semibold mt-10">
-              🔍 Search for people to connect.
+            <div className="text-Black text-center text-2xl font-semibold mt-10 flex justify-center">
+              <img src={poster} alt="XpertSwap" className="w-[450px] h-96 absolute" />
             </div>
           )}
 

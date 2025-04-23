@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import authImage from "../assets/authImage.jpg";
@@ -16,6 +16,13 @@ const Login = () => {
   const handleToggelPassword = () => {
     setShowPassword((prev) => !prev);
   }
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if(token){
+      navigate("/");
+    }
+  } , []);
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },

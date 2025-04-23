@@ -112,8 +112,8 @@ const UserProfile = () => {
                   </h4>
                   <ul className="space-y-2">
                     <li className="bg-gray-100 px-3 py-1 rounded-md">{user?.skillyouoffre || "Not specified"}</li>
-                    <li className="bg-gray-100 px-3 py-1 rounded-md">Website Markup</li>
-                    <li className="bg-gray-100 px-3 py-1 rounded-md">One Page</li>
+                    {/* <li className="bg-gray-100 px-3 py-1 rounded-md">Website Markup</li>
+                    <li className="bg-gray-100 px-3 py-1 rounded-md">One Page</li> */}
                   </ul>
                 </div>
                 <div className="bg-white p-6 rounded-xl flex-1 shadow-md hover:scale-105 transition">
@@ -122,7 +122,7 @@ const UserProfile = () => {
                   </h4>
                   <ul className="space-y-2">
                     <li className="bg-gray-100 px-3 py-1 rounded-md">{user?.skillyouwant || "Not specified"}</li>
-                    <li className="bg-gray-100 px-3 py-1 rounded-md">Backend API</li>
+                    {/* <li className="bg-gray-100 px-3 py-1 rounded-md">Backend API</li> */}
                   </ul>
                 </div>
               </div>

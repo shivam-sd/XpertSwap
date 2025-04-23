@@ -5,6 +5,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import logo from "../assets/logo.jpg";
+import { CiChat2 } from "react-icons/ci";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -82,21 +83,21 @@ const Navbar = () => {
                   >
                     Skill Request
                   </Link>
-                  <Link
+                  {/* <Link
                     to="/user-list"
                     className="block px-4 py-2 hover:bg-gray-100"
                   >
                     User List
-                  </Link>
+                  </Link> */}
                 </>
               ) : (
                 <></>
               )}
               <Link
-                to="/our-mentor"
+                to="/our-team"
                 className="block px-4 py-2 hover:bg-gray-100"
               >
-                Mentor
+                Team
               </Link>
               <Link
                 to="/our-privacy-policy"
@@ -127,11 +128,22 @@ const Navbar = () => {
           </Link>
           {user ? (
             <>
-              <Link
+              {/* <Link
                 to="/dashboard"
                 className="hover:text-blue-700 text-base font-bold transition"
               >
                 Dashboard
+              </Link> */}
+              <Link
+                to="/chat"
+                className="group relative flex items-center space-x-2"
+              >
+                <div className="text-blue-600 text-2xl group-hover:hidden transition-transform duration-200">
+                  <CiChat2 />
+                </div>
+                <span className="text-base font-bold text-blue-700 hidden group-hover:inline transition-all duration-200">
+                  Chat
+                </span>
               </Link>
             </>
           ) : (
@@ -232,21 +244,21 @@ const Navbar = () => {
                         >
                           Skill Request
                         </Link>
-                        <Link
+                        {/* <Link
                           to="/user-list"
                           className="block px-4 py-2 hover:bg-gray-100"
                         >
                           User List
-                        </Link>
+                        </Link> */}
                       </>
                     ) : (
                       <></>
                     )}
                     <Link
-                      to="/our-mentor"
+                      to="/our-team"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
-                      Mentor
+                      Team
                     </Link>
                     <Link
                       to="/our-privacy-policy"
@@ -264,8 +276,19 @@ const Navbar = () => {
                 <Link to="/find-people" className="block hover:text-blue-700">
                   Find People's
                 </Link>
-                <Link to="/dashboard" className="block hover:text-blue-700">
+                {/* <Link to="/dashboard" className="block hover:text-blue-700">
                   Dashboard
+                </Link> */}
+                <Link
+                  to="/chat"
+                  className="group relative flex items-center space-x-2 "
+                >
+                  <div className="text-blue-600 text-2xl group-hover:hidden transition-transform duration-200 ">
+                    <CiChat2 />
+                  </div>
+                  <span className="text-base font-bold text-blue-700 hidden group-hover:inline transition-all duration-200">
+                    Chat
+                  </span>
                 </Link>
               </>
             ) : (

@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import Image from "../assets/bgimage.webp";
+import Image from "../assets/freshGraduates.jpg";
 
 const bgImage = Image;
 
@@ -32,9 +32,9 @@ const FreshGraduates = () => {
         variants={fadeIn}
       >
         {/* 🔷 Background Image */}
-        <div
-          className="w-full h-[300px] md:h-[400px] bg-cover bg-center"
-          style={{ backgroundImage: `url(${bgImage})` }}
+        <img
+          className="w-full h-[300px] md:h-[430px] bg-cover bg-center object-fill"
+          src={bgImage} alt="fresh graduates"
         />
 
         {/* 🔷 Content Section */}
@@ -45,21 +45,27 @@ const FreshGraduates = () => {
             variants={fadeIn}
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-indigo-900 mb-4">
-              Kick-start your career with your dream company
+              Welcome Fresh Graduates! Start Your Real Learning Journey
             </h2>
             <p className="text-gray-700 mb-3">
-              Transitioning from college to the professional world, many young
-              people feel disoriented, confused, dissatisfied, and overwhelmed.
+              College se nikalte hi confusion hoti hai – ab kya karein?
+              XpertSwap ke sath apni skills ko polish karo aur naye skills
+              seekho real logon se, real duniya ke examples ke sath.
             </p>
             <p className="text-gray-700 mb-6">
-              Skill Exchange helps talented and skilled fresh graduates build
-              skill profiles and apply to drives from top recruiters. This helps
-              in landing their dream job in line with their educational
-              qualifications and core skill sets.
+              Yahan aap kisi aur ki skill seekh kar apni skill de sakte hain.
+              Zero pressure, sirf growth – chahe aap beginner ho ya intermediate
+              ya industry expert.
+              <br /><br />
+              Aapke paas jo knowledge hai, usse dusron ko sikhaiye. Aur unse
+              sikhaiye jinke paas practical experience hai. Mutual growth hi
+              XpertSwap ka core hai.
+              <br /> <br />
+              India ke naye talent ka hub – XpertSwap pe active rahiye, top learners/mentors list me aayein aur apna impact banaiye.
             </p>
-            <button className="bg-blue-700 hover:bg-indigo-800 text-white px-6 py-3 rounded-md text-sm font-semibold transition">
+            {/* <button className="bg-blue-700 hover:bg-indigo-800 text-white px-6 py-3 rounded-md text-sm font-semibold transition">
               Start Building Your Skill Profile
-            </button>
+            </button> */}
           </motion.div>
 
           {/* 🔹 Right Box - Features */}
@@ -78,11 +84,30 @@ const FreshGraduates = () => {
             <Feature icon={<FaEye />} text="Be visible to top organisations" />
             <Feature
               icon={<FaBuilding />}
-              text="Have a competitive edge over peers"
+              text="- Teach what you know, build confidence  
+"
             />
             <Feature
               icon={<FaBriefcase />}
-              text="Get access to multiple jobs from top employers"
+              text="Gain project experience for your portfolio"
+            />
+            <Feature
+              icon={<FaBuilding />}
+              text="Flexible learning, on your own time"
+            />
+            <Feature
+              icon={<FaBriefcase />}
+              text="Build your network across India"
+            />
+            <Feature
+              icon={<FaBriefcase />}
+              text="Grow without pressure, at your own pace
+"
+            />
+            <Feature
+              icon={<FaBriefcase />}
+              text="Learn in-demand skills from real peers 
+"
             />
           </motion.div>
         </div>
@@ -104,11 +129,11 @@ const FreshGraduates = () => {
             {[
               {
                 id: "01",
-                text: "Individuals certified by XpertSwap",
+                text: "College ya job ke baad bhi asaani se seekh sakte ho – apne time ke according.",
               },
               {
                 id: "02",
-                text: "Individuals pre-assessed by XpertSwap",
+                text: "Har skill exchange ke baad feedback milega jo aapki credibility banayega.",
               },
               {
                 id: "03",
@@ -116,7 +141,7 @@ const FreshGraduates = () => {
               },
               {
                 id: "04",
-                text: "Recent graduates with up to two years of experience",
+                text: "India ke har kone se log jud rahe hain – naye connections aur career opportunities ke liye best chance.",
               },
             ].map((item) => (
               <motion.div
@@ -125,7 +150,7 @@ const FreshGraduates = () => {
                 variants={fadeIn}
               >
                 <h3 className="text-xl font-bold mb-2">{item.id}</h3>
-                <p className="text-sm">{item.text}</p>
+                <p className="text-sm font-Poppins">{item.text}</p>
               </motion.div>
             ))}
           </div>
