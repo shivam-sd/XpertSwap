@@ -27,28 +27,6 @@ const Adminlogin = () => {
     }
   }, []);
 
-  useEffect(() => {
-    // Fetch the admin profile on login (optional, if you need profile data right after login)
-    const fetchAdminProfile = async () => {
-      const token = localStorage.getItem("AdminToken");
-      if (token) {
-        try {
-          const response = await axios.get(
-            `${import.meta.env.VITE_USERS_BASE_URL}admin/profile`,
-            {
-              headers: { Authorization: `Bearer ${token}` },
-            }
-          );
-          // Assuming the profile data is returned in response.data
-          console.log(response.data); // Save the profile data as needed
-        } catch (error) {
-          toast.error("Failed to fetch profile.", { position: "top-center" });
-        }
-      }
-    };
-
-    fetchAdminProfile();
-  }, []);
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
