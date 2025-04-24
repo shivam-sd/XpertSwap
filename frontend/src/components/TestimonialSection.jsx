@@ -27,42 +27,42 @@ const testimonials = [
     role: "Founder, LegalEase",
     rating: 5,
     review:
-      "Unhone mujhe proper license & document planning diya — bina kisi headache ke. Highly recommended!",
+      "Unhone mujhe proper license & document planning diya — bina kisi headache ke. Highly recommended! XpertSwap.",
   },
   {
     name: "Neha Gupta",
     role: "Legal Consultant",
     rating: 4,
     review:
-      "Client dashboard and AI legal bot se kaam bahut easy ho gaya. Great initiative!",
+      "Client dashboard and AI legal bot se kaam bahut easy ho gaya. Great initiative! I Loved this platform XpertSwap.",
   },
   {
     name: "Kunal Verma",
     role: "Startup Enthusiast",
     rating: 5,
     review:
-      "Jo bhi naya startup start karna chahta hai, unke liye perfect jagah hai XpertSwap.",
+      "Jo bhi naya startup start karna chahta hai, unke liye perfect jagah hai XpertSwap.I Loved this platform XpertSwap.",
   },
   {
     name: "Meera Joshi",
     role: "Freelance Developer",
     rating: 4,
     review:
-      "Legal docs aur mentor guidance dono ek hi platform par milna rare hota hai. Kudos to the team!",
+      "Legal docs aur mentor guidance dono ek hi platform par milna rare hota hai. Kudos to the team!I Loved this platform XpertSwap.",
   },
   {
     name: "Yash Malhotra",
     role: "UI/UX Designer",
     rating: 5,
     review:
-      "Design aur functionality ka combo is platform pe kamaal ka hai. Interface bhi user-friendly hai!",
+      "Design aur functionality ka combo is platform pe kamaal ka hai. Interface bhi user-friendly hai!I Loved this platform XpertSwap.",
   },
   {
     name: "Shruti Agarwal",
     role: "Startup Coach",
     rating: 5,
     review:
-      "Startups ke liye roadmap banana pehle kabhi itna easy nahi tha. XpertSwap ne kaafi madad ki!",
+      "Startups ke liye roadmap banana pehle kabhi itna easy nahi tha. XpertSwap ne kaafi madad ki! I Loved this platform XpertSwap.",
   },
   {
     name: "Nikhil Saxena",
@@ -76,14 +76,14 @@ const testimonials = [
     role: "Women Entrepreneur",
     rating: 5,
     review:
-      "Female founders ke liye mentorship aur legal support ikathe milna rare hota hai — this platform nails it!",
+      "Female founders ke liye mentorship aur legal support ikathe milna rare hota hai — this platform! I Loved this platform XpertSwap.",
   }
 ];
 
 const TestimonialSection = () => {
   return (
     <motion.section
-      className="w-full bg-gradient-to-r from-indigo-50 to-blue-50 py-12 px-4 md:px-20"
+      className="mx-auto container w-full bg-gradient-to-r from-indigo-50 to-blue-50 py-12 px-4 md:px-20 rounded-md shadow-lg"
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}

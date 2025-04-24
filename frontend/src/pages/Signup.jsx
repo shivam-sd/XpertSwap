@@ -6,24 +6,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { IoLogoFacebook } from "react-icons/io";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [agreeToTerms, setAgreeTOTerms] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    let token = localStorage.getItem("token");
-    if (token) {
-      navigate("/");
-    }
+    const token = localStorage.getItem("token");
+    if (token) navigate("/");
   }, []);
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -31,11 +24,10 @@ const Signup = () => {
     phone: "",
     address: "",
     password: "",
+    confirmPassword: "",
     skillyouoffre: "",
     skillyouwant: "",
   });
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,32 +39,32 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+
     const {
       name,
       email,
       phone,
       address,
       password,
+      confirmPassword,
       skillyouoffre,
       skillyouwant,
     } = formData;
 
-    if (
-      !name ||
-      !email ||
-      !phone ||
-      !address ||
-      !password ||
-      !skillyouoffre ||
-      !skillyouwant
-    ) {
-      return toast.error("All fields are required!", {
-        position: "top-center",
-      });
+    if (!name || !email || !phone || !address || !password || !confirmPassword || !skillyouoffre || !skillyouwant) {
+      return toast.error("All fields are required!", { position: "top-center" });
+    }
+
+    if (password !== confirmPassword) {
+      return toast.error("Passwords do not match", { position: "top-center" });
+    }
+
+    if (!agreeToTerms) {
+      return toast.warning("Please agree to the Terms & Conditions.", { position: "top-center" });
     }
 
     try {
+      setLoading(true);
       const response = await axios.post(
         `${import.meta.env.VITE_USERS_BASE_URL}users/register`,
         formData,
@@ -82,21 +74,23 @@ const Signup = () => {
       toast.success(response.data.message || "Registration successful!", {
         position: "top-center",
       });
-      setLoading(false);
       navigate("/login");
     } catch (err) {
-      console.error("Registration Error:", err);
-      toast.error(
-        err.response?.data?.error || "Registration failed. Try again!",
-        {
-          position: "top-center",
-        }
-      );
+      toast.error(err.response?.data?.error || "you allready exist.", {
+        position: "top-center",
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleToggelPassword = () => {
+  const togglePassword = () => {
     setShowPassword((prev) => !prev);
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   return (
@@ -107,163 +101,98 @@ const Signup = () => {
           initial="hidden"
           animate="visible"
           variants={fadeIn}
-          className="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden w-full max-w-5xl relative"
+          className="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg w-full max-w-5xl overflow-hidden"
         >
-          {/* Image / Info Section */}
-          <div className="hidden md:flex flex-col items-center justify-center bg-blue-100 p-10 w-1/2 text-center">
-            <img
-              src={authImage}
-              alt="SkillSwap Illustration"
-              className="w-96 mb-6 object-cover rounded-md"
-            />
-            <p className="text-gray-700 text-lg">
+          {/* Left Image/Info */}
+          <div className="hidden md:flex flex-col justify-center items-center bg-blue-100 w-1/2 p-10 text-center">
+            <img src={authImage} alt="Signup illustration" className="w-72 h-72 object-cover mb-6 rounded-lg" />
+            <p className="text-gray-700">
               Swap what you know for what you want to learn.
-              <br />
-              No money. Just skills. Learn locally or online.
+              <br /> No money. Just skills.
             </p>
           </div>
 
-          {/* Signup Form Section */}
-          <div className="flex-1 p-8 md:p-12 flex items-center justify-center">
-            <div className="w-full max-w-md">
-              <h2 className="text-2xl font-semibold text-center mb-6">
-                Create Your Account
-              </h2>
-              <form className="space-y-4" onSubmit={handleSubmit}>
+          {/* Signup Form */}
+          <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+            <h2 className="text-2xl font-semibold text-center mb-6">Create Your Account</h2>
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              {[
+                { name: "name", placeholder: "Full Name", type: "text" },
+                { name: "email", placeholder: "Email", type: "email" },
+                { name: "phone", placeholder: "Contact Number", type: "tel" },
+                { name: "skillyouoffre", placeholder: "Skill You Offer", type: "text" },
+                { name: "skillyouwant", placeholder: "Skill You Want", type: "text" },
+                { name: "address", placeholder: "Your Address", type: "text" },
+                { name: "password", placeholder: "Password", type: showPassword ? "text" : "password" },
+                { name: "confirmPassword", placeholder: "Confirm Password", type: "password" },
+              ].map((input) => (
                 <input
-                  type="text"
-                  name="name"
-                  placeholder="Full Name"
+                  key={input.name}
+                  type={input.type}
+                  name={input.name}
+                  placeholder={input.placeholder}
                   className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  value={formData.name}
+                  value={formData[input.name]}
                   onChange={handleChange}
                   required
                 />
+              ))}
+
+              <div className="text-sm text-right text-blue-600 cursor-pointer" onClick={togglePassword}>
+                {showPassword ? "Hide Password" : "Show Password"}
+              </div>
+
+              <div className="flex items-center gap-2">
                 <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
+                  type="checkbox"
+                  id="terms"
+                  checked={agreeToTerms}
+                  onChange={() => setAgreeTOTerms(!agreeToTerms)}
+                  className="cursor-pointer"
                 />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Contact Number"
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="skillyouoffre"
-                  placeholder="Skill You Offer"
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  value={formData.skillyouoffre}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="skillyouwant"
-                  placeholder="Skill You Want"
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  value={formData.skillyouwant}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="address"
-                  placeholder="Enter Your Address"
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  value={formData.address}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  placeholder="Password"
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
-                <div className="text-center flex items-center justify-center gap-2">
-                  <input
-                    type="checkbox"
-                    className="cursor-pointer"
-                    id="our-privacy-policy"
-                    checked={agreeToTerms}
-                    onChange={(e) => setAgreeTOTerms(e.target.checked)}
-                  />
-                  <label
-                    htmlFor="our-privacy-policy"
-                    className="cursor-pointer text-gray-700"
+                <label htmlFor="terms" className="text-sm text-gray-700">
+                  I agree to the{" "}
+                  <Link to="/our-privacy-policy" className="text-blue-500 font-bold underline">
+                    Terms & Conditions
+                  </Link>
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full py-3 rounded-lg font-medium text-white transition duration-200 ${
+                  loading || !agreeToTerms
+                    ? "bg-blue-300 cursor-not-allowed"
+                    : "bg-blue-500 hover:bg-blue-600"
+                }`}
+              >
+                {loading ? (
+                  <svg
+                    className="animate-spin h-5 w-5 mx-auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
                   >
-                    I agree to the{" "}
-                    <Link
-                      to={"/our-privacy-policy"}
-                      className="text-blue-500 font-bold"
-                    >
-                      Terms & Conditions
-                    </Link>
-                  </label>
-                </div>
-                <span
-                  className="absolute right-14 lg:bottom-40 md:bottom-40 bottom-[145px] cursor-pointer text-sm text-blue-700 font-bold"
-                  onClick={handleToggelPassword}
-                >
-                  {showPassword ? "hide" : "show"}
-                </span>
-                <button
-                  type="submit"
-                  disabled={loading || !agreeToTerms}
-                  className={`w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium flex items-center justify-center ${
-                    loading || !agreeToTerms
-                      ? "bg-blue-300 cursor-not-allowed"
-                      : "bg-blue-500 hover:bg-blue-600 text-white"
-                  } `}
-                >
-                  {loading ? (
-                    <>
-                      <svg
-                        className="animate-spin h-5 w-5 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                        ></path>
-                      </svg>
-                    </>
-                  ) : (
-                    <>Sign up</>
-                  )}
-                </button>
-              </form>
-              <p className="text-center text-sm mt-4">
-                Already have an account?{" "}
-                <Link to="/login" className="text-blue-600 text-md font-bold">
-                  Log In
-                </Link>
-              </p>
-            </div>
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="white" strokeWidth="4" />
+                    <path
+                      className="opacity-75"
+                      fill="white"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    />
+                  </svg>
+                ) : (
+                  "Sign Up"
+                )}
+              </button>
+            </form>
+
+            <p className="text-center text-sm mt-4">
+              Already have an account?{" "}
+              <Link to="/login" className="text-blue-600 font-bold">
+                Log In
+              </Link>
+            </p>
           </div>
         </motion.div>
       </div>

@@ -19,6 +19,7 @@ import Context from "./context/Context";
 import PrivacyPolicy from "./pages/PrivacyProlicy";
 import SendRequestForm from "./pages/SendRequestForm";
 import { setUserDetails } from "./store/userSlice";
+import { setAdminDetails } from "./store/adminSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -26,12 +27,20 @@ import VideoCall from "./pages/VideoCall";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
 import CollaborationWithUniversities from "./components/CollaborationWithUniversities";
 import InstitutionJoinPage from "./components/InstitutionJoinPage";
+import Adminlogin from "./pages/Adminlogin";
+import  AnalyticsDashboard from "./pages/AnalyticsDashboard";
+import ContentList from "./UI/ContentList";
+import AdminUserRequestList from "./UI/UserRequestList";
 
 import "./App.css";
+import AdminProfile from "./pages/AdminProfile";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [admin , setAdmin] = useState(null);
   const dispatch = useDispatch();
+
+  // for user Detais 
 
   const fetchUsersDetails = async () => {
     try {
@@ -59,12 +68,43 @@ function App() {
     }
   };
 
+// for Admin Details
+
+const fetchAdminDetails = async () => {
+  try {
+    const AdminToken = localStorage.getItem("AdminToken");
+
+    if (!AdminToken) return;
+
+    const response = await axios.get(`${import.meta.env.VITE_USERS_BASE_URL}admin/profile`, {
+      headers: {
+        Authorization: `Bearer ${AdminToken}`,
+      },
+    });
+
+    // console.log("Admin Data" , response);
+    const AdminData = response.data.Admin;
+
+    setAdmin(AdminData);
+    dispatch(setAdminDetails(AdminData)); // ✅ Corrected line
+
+  } catch (err) {
+    console.error("Error fetching admin details:", err);
+    toast.error(err.response?.data?.errors || "Admin login again", {
+      position: "top-center",
+    });
+  }
+};
+
+
+
   useEffect(() => {
     fetchUsersDetails();
+    fetchAdminDetails();
   }, []);
 
   return (
-    <Context.Provider value={{ user, fetchUsersDetails }}>
+    <Context.Provider value={{ user, fetchUsersDetails, admin , fetchAdminDetails }}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -86,6 +126,11 @@ function App() {
         <Route path="/call/:id" element={<ProtectedRoutes Component={VideoCall} />} />
         <Route path="universitis-collaboration" element={<CollaborationWithUniversities />} />
         <Route path="/Institution-Join-Form" element={<InstitutionJoinPage />} />
+        <Route path="/admin-login" element={<Adminlogin />} />
+        <Route path="/admin-profile" element={<AdminProfile />} />
+        <Route path="/analytics-dashboard" element={<AnalyticsDashboard />} />
+        <Route path="/admin-controls" element={<ContentList />} />
+        <Route path="/admin-users-request" element={<AdminUserRequestList />} />
       </Routes>
     </Context.Provider>
   );

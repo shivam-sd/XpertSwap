@@ -1,24 +1,20 @@
-import React, { useEffect } from 'react'
-import {useNavigate} from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ProtectedRoutes = (props) => {
-
-  const {Component} = props;
+const ProtectedRoutes = ({ Component }) => {
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    let protect = localStorage.getItem("token");
-    if(!protect){
+    const userToken = localStorage.getItem("token");
+    const adminToken = localStorage.getItem("AdminToken");
+
+    // Redirect only if both tokens are missing
+    if (!userToken && !adminToken) {
       navigate("/login");
     }
-  } , []);
+  }, [navigate]);
 
-  return (
-    <div>
-      <Component />
-    </div>
-  )
-}
+  return <Component />;
+};
 
-export default ProtectedRoutes
+export default ProtectedRoutes;

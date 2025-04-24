@@ -37,7 +37,7 @@ const AdminLoginController = async (req,res) => {
           httpOnly: true, // Prevents client-side access
           secure: process.env.NODE_ENV === "production", // Use secure flag in production
           sameSite: "Strict", // Prevents CSRF attacks
-        //   maxAge: 86400000, // 24 hour
+          maxAge: 86400000, // 24 hour
         }); 
     
         // Return success response

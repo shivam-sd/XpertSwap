@@ -124,19 +124,22 @@ const HomeInfo = () => {
       </div>
 
       {/* Intro Video */}
-      <h1 className="mt-6 mb-2 text-center text-4xl font-bold font-Poppins text-blue-600 shadow-lg p-2 cursor-pointer duration-300 hover:scale-105">Quick Guide</h1>
-      <div className="w-full max-w-4xl mx-auto px-4 py-6">
-  <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-    <video
-      src={IntroVideo}
-      controls
-      autoPlay
-      muted
-      className="w-full h-full object-cover"
-    />
-  </div>
-</div>
-
+      <h1 className="mt-6 mb-2 text-center text-4xl font-bold font-Poppins text-blue-600 shadow-lg p-2 cursor-pointer duration-300 hover:scale-105">
+        Quick Guide
+      </h1>
+      <div className="w-full max-w-5xl mx-auto px-4 py-6">
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+          <video
+            src={IntroVideo}
+            className="w-full h-full object-cover absolute top-0 left-0 cursor-pointer"
+            autoPlay
+            controls
+            muted // Muted for autoplay to work across browsers
+            loop // Loop the video
+            playsInline
+          />
+        </div>
+      </div>
     </section>
   );
 };
