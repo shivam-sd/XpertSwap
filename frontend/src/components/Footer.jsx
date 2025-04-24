@@ -14,7 +14,7 @@ const Footer = () => {
     { name: "Fresh Graduates", path: "/fresh-graduates" },
     ...(user ? [
       { name: "Find People's", path: "/find-people" },
-      { name: "Dashboard", path: "/dashboard" },
+      // { name: "Dashboard", path: "/dashboard" },
       { name: "Skill MarketPlace", path: "/skill-marketplace" }
     ] : []),
     { name: "Privacy Policy", path: "/our-privacy-policy" },

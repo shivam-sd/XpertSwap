@@ -5,12 +5,13 @@ import Footer from "./Footer";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaGlobeAfrica } from "react-icons/fa";
-import ritikSiImg from "../assets/Team/ritiksir.jpg";
+import ritikSir from "../assets/Team/ritikSir.jpg";
 import shivamImg from "../assets/Team/Shivam.jpg";
 import alokImg from "../assets/Team/Alok.png";
 import sumitImg from "../assets/Team/Sumit.jpg";
 import nitinImg from "../assets/Team/Nitin.jpg";
 import dharmeshImg from "../assets/Team/Dharmesh.jpg";
+import ayushiImg from "../assets/Team/ayushi.jpg";
 
 const OurTeam = () => {
   const fadeIn = {
@@ -34,8 +35,9 @@ const OurTeam = () => {
       role: "Fullstack Developer",
       description:
         "Alok is a dedicated Fullstack Developer, contributing to the development of XpertSwap.",
-      linkedin: "https://xpertswap.com",
-      github: "",
+        linkedin: "https://www.linkedin.com/in/alokyadav",
+      github: "https://github.com/alokyadav9045",
+      "portfolio":"https://alokyadavportfolio.netlify.app",
       image: alokImg,
     },
     {
@@ -65,6 +67,16 @@ const OurTeam = () => {
       github: "",
       image: nitinImg,
     },
+    {
+      name: "Ayushi Koharwal",
+      role: "UI&UX Desiner",
+      description:
+        "Design intuitive and engaging user interfaces that enhance user experience across web and mobile platforms Collaborate with cross-functional teams to transform user needs into seamless, visually appealing digital experiences.",
+        linkedin: "https://www.linkedin.com/in/ayushi-koharwal-b69a61275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        // github: "https://github.com/shivam-sd",
+        // "portfolio":"https://shivambca.netlify.app",
+      image: ayushiImg,
+    },
     
   ];
 
@@ -80,7 +92,7 @@ const OurTeam = () => {
         <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-10 max-w-4xl w-full text-center mb-12">
           <div className="flex flex-col items-center mb-6">
             <img
-              src={ritikSiImg}
+              src={ritikSir}
               alt="Ritik Sir - Mentor"
               className="w-40 h-40 rounded-full border-4 border-blue-500 object-cover shadow-md hover:scale-105 transition duration-200"
             />

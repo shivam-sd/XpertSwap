@@ -5,6 +5,8 @@ import HeroSection from "../components/HeroSection";
 import HomeInfo from "../components/HomeInfo";
 import AboutHero from "../components/AboutHero";
 import { motion } from "framer-motion";
+import SkillExchangeCards from "../components/SkillExhangeCard";
+import TestimonialSection from "../components/TestimonialSection";
 
 const Home = () => {
 
@@ -23,6 +25,8 @@ const Home = () => {
     className="bg-transparent">
       <HeroSection />
       <HomeInfo />
+      <SkillExchangeCards />
+      <TestimonialSection />
       <AboutHero />
     </motion.div>
       <Footer />

@@ -7,6 +7,7 @@ const cors = require("cors");
 const ConnectDataBase = require("./config/db.js");
 const UserRouter = require("./routes/user.route.js");
 const AllUsers = require("./routes/allUsers.route.js");
+const AdminRoute = require("./routes/admin.route.js");
 // const fileUpload = require("express-fileupload");
 // const cloudinary = require("cloudinary").v2;
 
@@ -25,6 +26,7 @@ console.log(process.env.FRONTEND_BASE_URL)
 
 app.use("/users" , UserRouter);
 app.use("/all" , AllUsers);
+app.use("/admin", AdminRoute);
 
 
 // for cloudnary

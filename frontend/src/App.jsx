@@ -24,6 +24,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import VideoCall from "./pages/VideoCall";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
+import CollaborationWithUniversities from "./components/CollaborationWithUniversities";
+import InstitutionJoinPage from "./components/InstitutionJoinPage";
 
 import "./App.css";
 
@@ -82,6 +84,8 @@ function App() {
         <Route path="/our-team" element={<OurTeam />} />
         <Route path="/our-privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/call/:id" element={<ProtectedRoutes Component={VideoCall} />} />
+        <Route path="universitis-collaboration" element={<CollaborationWithUniversities />} />
+        <Route path="/Institution-Join-Form" element={<InstitutionJoinPage />} />
       </Routes>
     </Context.Provider>
   );
