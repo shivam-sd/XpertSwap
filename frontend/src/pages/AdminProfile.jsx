@@ -70,7 +70,7 @@ const AdminProfile = () => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-3 hover:bg-gray-50 p-3 rounded-md transition">
                 <FaUsers className="text-blue-600" />
-                <Link to="/admin/users" className="text-gray-700 font-medium">
+                <Link to="#" className="text-gray-700 font-medium">
                   Manage Users
                 </Link>
               </li>
@@ -88,7 +88,7 @@ const AdminProfile = () => {
               </li>
               <li className="flex items-center space-x-3 hover:bg-gray-50 p-3 rounded-md transition">
                 <FaCog className="text-blue-600" />
-                <Link to="/admin/settings" className="text-gray-700 font-medium">
+                <Link to="#" className="text-gray-700 font-medium">
                   Settings
                 </Link>
               </li>

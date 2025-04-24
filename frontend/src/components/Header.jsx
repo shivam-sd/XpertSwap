@@ -19,9 +19,6 @@ const Navbar = () => {
 
   const renderAdminLinks = () => (
     <>
-      {/* <Link to="/dashboard" className="hover:text-blue-700 text-base font-bold transition">
-        Dashboard
-      </Link> */}
       <Link
         to="/analytics-dashboard"
         className="hover:text-blue-700 text-base font-bold transition"
@@ -54,9 +51,10 @@ const Navbar = () => {
 
   const renderUserLinks = () => (
     <>
+      {/* Desktop Menu */}
       <div className="relative group">
         <div className="group flex items-center space-x-1 cursor-pointer hover:text-blue-700 text-base font-bold duration-300">
-          About <FaChevronDown size={12} />
+          About &nbsp; <FaChevronDown size={12} />
         </div>
         <motion.div
           initial={{ opacity: 0, y: -5 }}
@@ -143,6 +141,7 @@ const Navbar = () => {
           <div className="font-semibold text-xl">Skill Exchange</div>
         </div>
 
+        {/* Mobile Menu Toggle Button */}
         <div className="md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -152,6 +151,7 @@ const Navbar = () => {
           </button>
         </div>
 
+        {/* Desktop Menu (Hidden on Mobile) */}
         <div className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-700 relative">
           {isAdmin ? renderAdminLinks() : renderUserLinks()}
 
@@ -182,6 +182,7 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile Menu (Visible on Mobile) */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -193,12 +194,15 @@ const Navbar = () => {
           >
             {isAdmin ? (
               <>
+                <Link to={"/analytics-dashboard"} className="block hover:text-blue-700">
+                  Analytics Dashboard
+                </Link>
                 <Link to={"/user-list"} className="block hover:text-blue-700">
                   User List
                 </Link>
-                <Link to="/dashboard" className="block hover:text-blue-700">
+                {/* <Link to="/dashboard" className="block hover:text-blue-700">
                   Dashboard
-                </Link>
+                </Link> */}
                 <Link to="/our-team" className="block hover:text-blue-700">
                   Team
                 </Link>
@@ -210,7 +214,7 @@ const Navbar = () => {
                 </Link>
                 <div className="flex items-center gap-3 w-full justify-center">
                   <Link
-                    to={"/user-list"}
+                    to={"/admin-profile"}
                     className="flex items-center text-2xl font-medium  hover:text-blue-600 transition duration-300 ease-in-out text-blue-500"
                   >
                     <FaUserCircle className="text-2xl mr-2 text-gray-700 hover:text-blue-600" />
@@ -306,7 +310,7 @@ const Navbar = () => {
                 {user?.name ? (
                   <Link
                     to="/user-profile"
-                    className="flex items-center text-blue-700"
+                    className="flex items-center text-blue-700 justify-center"
                   >
                     <FaRegUserCircle className="text-3xl mr-2" /> Profile
                   </Link>

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const ProtectedRoutes = ({ Component }) => {
   const navigate = useNavigate();
 
-  useEffect(() => {
+  useEffect(() => { 
     const userToken = localStorage.getItem("token");
     const adminToken = localStorage.getItem("AdminToken");
 

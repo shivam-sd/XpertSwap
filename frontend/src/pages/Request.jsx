@@ -147,8 +147,8 @@ const Request = () => {
                   return (
                     <>
                       <option
-                        value={skill}
                         key={idx}
+                        value={skill}
                         className="text-sm font-Poppins font-bold bg-blue-500 text-gray-900"
                       >
                         {skill}
@@ -207,8 +207,8 @@ const Request = () => {
                 return (
                   <>
                     <div
-                      className="flex duration-300 items-center gap-3 w-full border border-gray-300 p-1 shadow-xl bg-transparent rounded-md  hover:bg-gradient-to-t to-white from-blue-400  cursor-pointer"
                       key={idx}
+                      className="flex duration-300 items-center gap-3 w-full border border-gray-300 p-1 shadow-xl bg-transparent rounded-md  hover:bg-gradient-to-t to-white from-blue-400  cursor-pointer"
                     >
                       <img
                         src={request.avatar}
