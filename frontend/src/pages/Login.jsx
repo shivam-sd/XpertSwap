@@ -113,7 +113,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-               <div className="text-sm text-center ">Login  as <Link to={"/admin-login"} className="text-blue-500 font-bold font-Poppins text-sm hover:underline">admin</Link></div>
+               {/* <div className="text-sm text-center ">Login  as <Link to={"/admin-login"} className="text-blue-500 font-bold font-Poppins text-sm hover:underline">admin</Link></div> */}
                 <span className="absolute right-14 lg:bottom-[200px] bottom-[185px] cursor-pointer text-sm text-blue-700 font-bold" onClick={handleToggelPassword}>{showPassword ? "hide" : "show"}</span>
                 <button
                   type="submit"
