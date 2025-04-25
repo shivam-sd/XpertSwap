@@ -105,7 +105,7 @@ const Signup = () => {
         >
           {/* Left Image/Info */}
           <div className="hidden md:flex flex-col justify-center items-center bg-blue-100 w-1/2 p-10 text-center">
-            <img src={authImage} alt="Signup illustration" className="w-72 h-72 object-cover mb-6 rounded-lg" />
+            <img src={authImage} alt="Signup illustration" className="w-72 h-72 object-contain mb-6 rounded-lg" />
             <p className="text-gray-700">
               Swap what you know for what you want to learn.
               <br /> No money. Just skills.
