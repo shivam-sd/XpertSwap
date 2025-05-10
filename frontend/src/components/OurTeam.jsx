@@ -35,7 +35,7 @@ const OurTeam = () => {
       role: "Fullstack Developer",
       description:
         "Alok is a dedicated Fullstack Developer, contributing to the development of XpertSwap.",
-        linkedin: "https://www.linkedin.com/in/alokyadav",
+        linkedin: "https://www.linkedin.com/in/alok-yadav-906920292/",
       github: "https://github.com/alokyadav9045",
       "portfolio":"https://alokyadavportfolio.netlify.app",
       image: alokImg,
