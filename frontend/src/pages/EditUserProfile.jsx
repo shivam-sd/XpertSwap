@@ -86,6 +86,7 @@ const EditUserProfile = () => {
     toast.success("Profile updated successfully!");
     setLoading(false);
     navigate(`/user-profile`);
+    window.location.reload();
   } catch (err) {
     toast.error("Failed to update profile");
     setLoading(false);
