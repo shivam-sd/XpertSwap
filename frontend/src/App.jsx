@@ -62,6 +62,7 @@ function App() {
 
     } catch (err) {
       console.error("Error fetching user details:", err);
+      localStorage.removeItem("token");
       toast.error(err.response?.data?.errors || "login again", {
         position: "top-center",
       });

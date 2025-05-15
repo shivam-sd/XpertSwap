@@ -56,50 +56,42 @@ const EditUserProfile = () => {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  setLoading(true);
 
-    setLoading(true);
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("bio", bio);
+  formData.append("email", email);
+  formData.append("skillyouoffre", skillyouoffre);
+  formData.append("skillyouwant", skillyouwant);
+  formData.append("address", address);
+  formData.append("status", status);
 
-    // const userData = {
-    //   name,
-    //   bio,
-    //   email,
-    //   skillyouoffre,
-    //   skillyouwant,
-    //   address,
-    //   status,
-    // };
+  // Only append if it's a new file (not just URL string)
+  if (profileImage && typeof profileImage !== "string") {
+    formData.append("profileImage", profileImage);
+  }
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("bio", bio);
-    formData.append("email", email);
-    formData.append("skillyouoffre", skillyouoffre);
-    formData.append("skillyouwant", skillyouwant);
-    formData.append("address", address);
-    formData.append("status", status);
+  try {
+    await axios.put(
+      `${import.meta.env.VITE_USERS_BASE_URL}users/profile/update/${id}`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    toast.success("Profile updated successfully!");
+    setLoading(false);
+    navigate(`/user-profile`);
+  } catch (err) {
+    toast.error("Failed to update profile");
+    setLoading(false);
+  }
+};
 
-    if (typeof profileImage !== "string") {
-  formData.append("profileImage", profileImage);
-}
-
-    try {
-      const updatedUser = await axios.put(
-        `${import.meta.env.VITE_USERS_BASE_URL}users/profile/update/${id}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      toast.success("Profile updated successfully!");
-      setLoading(false);
-      navigate(`/user-profile`);
-    } catch (err) {
-      toast.error("Failed to update profile");
-    }
-  };
 
   const fadeIn = {
     hidden: { opacity: 0, y: 30 },
