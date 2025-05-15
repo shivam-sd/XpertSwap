@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useRef } from "react";
 
 const EditUserProfile = () => {
   const { id } = useParams();
@@ -17,15 +18,21 @@ const EditUserProfile = () => {
   const [skillyouwant, setSkillYouWant] = useState("");
   const [address, setAddress] = useState("");
   const [status, setStatus] = useState("");
+  const [profileImage, setProfileImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [loading , setLoading] = useState(null);
 
   // Fetch user data
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_USERS_BASE_URL}all/users`);
+        const res = await axios.get(
+          `${import.meta.env.VITE_USERS_BASE_URL}all/users`
+        );
         const userList = res?.data?.allUsers;
         const foundUser = userList.find((user) => user._id === id);
         if (foundUser) {
+          setProfileImage(foundUser.profilePic || "");
           setName(foundUser.name || "");
           setBio(foundUser.bio || "");
           setEmail(foundUser.email || "");
@@ -42,25 +49,52 @@ const EditUserProfile = () => {
     fetchUser();
   }, [id]);
 
+  // for image handling
+  const InputRefrence = useRef(null);
+  const handleClickImage = () => {
+    InputRefrence.current.click();
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userData = {
-      name,
-      bio,
-      email,
-      skillyouoffre,
-      skillyouwant,
-      address,
-      status,
-    };
+
+    setLoading(true);
+
+    // const userData = {
+    //   name,
+    //   bio,
+    //   email,
+    //   skillyouoffre,
+    //   skillyouwant,
+    //   address,
+    //   status,
+    // };
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("bio", bio);
+    formData.append("email", email);
+    formData.append("skillyouoffre", skillyouoffre);
+    formData.append("skillyouwant", skillyouwant);
+    formData.append("address", address);
+    formData.append("status", status);
+
+    if (typeof profileImage !== "string") {
+  formData.append("profileImage", profileImage);
+}
 
     try {
       const updatedUser = await axios.put(
         `${import.meta.env.VITE_USERS_BASE_URL}users/profile/update/${id}`,
-        userData
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
-      // console.log("Updated User", updatedUser);
       toast.success("Profile updated successfully!");
+      setLoading(false);
       navigate(`/user-profile`);
     } catch (err) {
       toast.error("Failed to update profile");
@@ -86,9 +120,41 @@ const EditUserProfile = () => {
             Edit Your Profile
           </h2>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-5">
+            {/* Profile Picture */}
+            <div className="flex items-center justify-center flex-col">
+              <label className="text-sm text-gray-600 font-semibold">
+                Profile Picture
+              </label>
+    <div className="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full overflow-hidden cursor-pointer">
+               <img
+                src={imagePreview ? imagePreview : profileImage}
+                alt=""
+                onClick={handleClickImage}
+                className="w-20 h-20 object-cover rounded-full"
+                />
+                </div>
+
+              {/*Hidden input*/}
+              <input
+                type="file"
+                name="profileImage"
+                accept="image/*"
+                ref={InputRefrence}
+                className="ml-4 p-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 hidden"
+                onChange={(e) => {
+                  setProfileImage(e.target.files[0]);
+                  const file = e.target.files[0];
+                  setImagePreview(URL.createObjectURL(file));
+                }}
+              />
+
+             
+            </div>
             {/* Name */}
             <div>
-              <label className="text-sm text-gray-600 font-semibold">Name</label>
+              <label className="text-sm text-gray-600 font-semibold">
+                Name
+              </label>
               <input
                 type="text"
                 name="name"
@@ -112,7 +178,9 @@ const EditUserProfile = () => {
 
             {/* Email */}
             <div>
-              <label className="text-sm text-gray-600 font-semibold">Email</label>
+              <label className="text-sm text-gray-600 font-semibold">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -124,7 +192,9 @@ const EditUserProfile = () => {
 
             {/* Skills Offered */}
             <div>
-              <label className="text-sm text-gray-600 font-semibold">Skill You Offer</label>
+              <label className="text-sm text-gray-600 font-semibold">
+                Skill You Offer
+              </label>
               <input
                 type="text"
                 name="skillyouoffre"
@@ -136,7 +206,9 @@ const EditUserProfile = () => {
 
             {/* Skills Wanted */}
             <div>
-              <label className="text-sm text-gray-600 font-semibold">Skill You Want</label>
+              <label className="text-sm text-gray-600 font-semibold">
+                Skill You Want
+              </label>
               <input
                 type="text"
                 name="skillyouwant"
@@ -148,7 +220,9 @@ const EditUserProfile = () => {
 
             {/* Address */}
             <div>
-              <label className="text-sm text-gray-600 font-semibold">Address</label>
+              <label className="text-sm text-gray-600 font-semibold">
+                Address
+              </label>
               <input
                 type="text"
                 name="address"
@@ -159,15 +233,20 @@ const EditUserProfile = () => {
             </div>
 
             {/* Status */}
-            <div>
-              <label className="text-sm text-gray-600 font-semibold">Status</label>
-              <input
-                type="text"
+            <div className="text-sm text-gray-600 font-semibold">
+              <label className="text-sm text-gray-600 font-semibold">
+                Status
+              </label>
+              <select
                 name="status"
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
                 className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
-              />
+              >
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="pending">Pending</option>
+              </select>
             </div>
 
             {/* Submit */}
@@ -176,7 +255,7 @@ const EditUserProfile = () => {
                 type="submit"
                 className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-md font-semibold"
               >
-                Save Changes
+                {loading ? "Profile Updating..." : "Save Changes"}
               </button>
             </div>
           </form>

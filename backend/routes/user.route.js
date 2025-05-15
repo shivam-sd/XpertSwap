@@ -12,7 +12,7 @@ router.post("/register", UserRegisterController);
 router.post("/login" , UserLoginController);
 router.get("/profile" , authTokenMiddleware , userDetailsController);
 router.get("/logout" , logoutController);
-router.put("/profile/update/:id" , UserProfileUpdate);
+router.put("/profile/update/:id" , UserProfileUpdate); 
 
 
 module.exports = router;

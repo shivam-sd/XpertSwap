@@ -52,7 +52,7 @@ const UserProfile = () => {
             {/* Left Section */}
             <div className="md:w-1/3 text-center bg-gradient-to-b from-[#e0eafc] to-[#cfdef3] p-6 rounded-xl shadow-lg">
               <img
-                src={profilelogo}
+                src={user?.profilePic || profilelogo}
                 alt="User Img"
                 className="w-28 h-28 mx-auto rounded-full border-4 border-blue-500 mb-4"
               />

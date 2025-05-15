@@ -1,20 +1,16 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 
-const ProtectedRoutes = ({ Component }) => {
-  const navigate = useNavigate();
+const ProtectedRoute = ({ Component }) => {
+  const userToken = localStorage.getItem("token");
+  const adminToken = localStorage.getItem("AdminToken");
 
-  useEffect(() => { 
-    const userToken = localStorage.getItem("token");
-    const adminToken = localStorage.getItem("AdminToken");
-
-    // Redirect only if both tokens are missing
-    if (!userToken && !adminToken) {
-      navigate("/login");
-    }
-  }, [navigate]);
+  // If no valid token, redirect to login
+  if (!userToken && !adminToken) {
+    return <Navigate to="/login" replace />;
+  }
 
   return <Component />;
 };
 
-export default ProtectedRoutes;
+export default ProtectedRoute;

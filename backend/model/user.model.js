@@ -20,19 +20,14 @@ const userSchema = new mongoose.Schema({
     address:{
         type:String
     },
-    // skillyouoffre: [{
-    //     type:mongoose.Schema.Types.ObjectId,
-    //     ref:"Skill"
-    // }],
+  
     skillyouoffre:{
         type:String
     },
     skillyouwant:{
         type:String
     },
-    // offerdSkill:{
-    //     type:String
-    // },
+   
     bio: String,
     // location:{
     //     type:{
@@ -57,10 +52,6 @@ const userSchema = new mongoose.Schema({
         type:String,
         enum:["active","inactive","pending"],
         default:"active"
-    },
-    avatar:{
-        type:String,
-        default:"https://static.toiimg.com/thumb/msid-96789814,width-400,resizemode-4/Elon-Musk.jpg"
     },
     // image: {
     //     public_id: {

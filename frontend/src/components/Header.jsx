@@ -13,6 +13,7 @@ const Navbar = () => {
   const [aboutOpen, setAboutOpen] = useState(false);
 
   const user = useSelector((state) => state?.user?.user?.user);
+  // console.log("userHEader" , user)
   const admin = useSelector((state) => state?.admin?.admin);
 
   const isAdmin = !!admin?.email;
@@ -157,7 +158,7 @@ const Navbar = () => {
 
           {user?.name ? (
             <Link to="/user-profile">
-              <FaRegUserCircle className="text-3xl text-blue-700 font-Poppins duration-300 hover:scale-110 cursor-pointer" />
+              <img src={user?.profilePic ? user?.profilePic : <FaRegUserCircle className="text-3xl text-blue-700 font-Poppins duration-300 hover:scale-110 cursor-pointer" /> } alt="" className="w-8 h-8 object-cover rounded-full" />
             </Link>
           ) : (
             !isAdmin && (
@@ -312,7 +313,8 @@ const Navbar = () => {
                     to="/user-profile"
                     className="flex items-center text-blue-700 justify-center"
                   >
-                    <FaRegUserCircle className="text-3xl mr-2" /> Profile
+                    <img src={user?.profilePic ? user?.profilePic : <FaRegUserCircle className="text-3xl mr-2" />} alt="" className="w-10 h-10 rounded-full object-cover" />
+                    <span className="ml-5">Profile</span>
                   </Link>
                 ) : (
                   <div className="flex flex-col space-y-2 pt-2">
