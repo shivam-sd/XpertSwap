@@ -9,8 +9,8 @@ const VideoCall = () => {
 
   let myMeeting = async (element) => {
     // generate Kit Token
-    const appID = 1879903461;
-    const serverSecret = "7686a6fb7de9095736ee2c543a0e1864";
+    const appID = 1830619616;
+    const serverSecret = "da3dc8b69a71c359c409d0431bbe1ce1";
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       appID,
       serverSecret,
