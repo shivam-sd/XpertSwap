@@ -32,12 +32,12 @@ const Navbar = () => {
       >
         User List
       </Link>
-      <Link
+      {/* <Link
         to="/our-team"
         className="hover:text-blue-700 text-base font-bold transition"
       >
         Team
-      </Link>
+      </Link> */}
       <Link
         to="/our-privacy-policy"
         className="hover:text-blue-700 text-base font-bold transition"
@@ -83,9 +83,9 @@ const Navbar = () => {
               </Link>
             </>
           )}
-          <Link to="/our-team" className="block px-4 py-2 hover:bg-gray-100">
+          {/* <Link to="/our-team" className="block px-4 py-2 hover:bg-gray-100">
             Team
-          </Link>
+          </Link> */}
           <Link
             to="/our-privacy-policy"
             className="block px-4 py-2 hover:bg-gray-100"
@@ -204,9 +204,9 @@ const Navbar = () => {
                 {/* <Link to="/dashboard" className="block hover:text-blue-700">
                   Dashboard
                 </Link> */}
-                <Link to="/our-team" className="block hover:text-blue-700">
+                {/* <Link to="/our-team" className="block hover:text-blue-700">
                   Team
-                </Link>
+                </Link> */}
                 <Link
                   to="/our-privacy-policy"
                   className="block hover:text-blue-700"
@@ -268,12 +268,12 @@ const Navbar = () => {
                             </Link>
                           </>
                         )}
-                        <Link
+                        {/* <Link
                           to="/our-team"
                           className="block px-4 py-2 hover:bg-gray-100"
                         >
                           Team
-                        </Link>
+                        </Link> */}
                         <Link
                           to="/our-privacy-policy"
                           className="block px-4 py-2 hover:bg-gray-100"
