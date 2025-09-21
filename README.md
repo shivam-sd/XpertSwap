@@ -2,7 +2,11 @@
 
 ![logo](https://github.com/user-attachments/assets/1e74e515-a399-4485-9461-413d67860fd7)
 
-🎥 [Quick Demo](https://github.com/user-attachments/assets/87610ee5-fec5-4bc6-80f7-71479f0c23bb)  
+
+
+https://github.com/user-attachments/assets/a4a3f058-eae3-4f2a-a89b-074319e15dac
+
+
 
 > 🚀 *XpertSwap is a next-gen digital platform that enables people to **exchange skills, connect, learn, and grow together without financial barriers.***  
 > *"Earn While You Learn – Swap Your Skills, Build Your Network, Grow Together."*  
